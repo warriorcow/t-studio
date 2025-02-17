@@ -1,0 +1,58 @@
+$weightsUnbounded: (
+        400: 'Regular',
+        500: 'Medium',
+        700: 'Bold'
+);
+
+@each $weight, $name in $weightsUnbounded {
+  @font-face {
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-display: swap;
+    src: url('/fonts/Unbounded/Unbounded-#{$name}.ttf') format('truetype');
+    font-weight: $weight;
+  }
+}
+
+@mixin UnboundedMedium86() {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 500;
+  font-size: 86px;
+  line-height: 95px;
+}
+
+@mixin UnboundedRegular68() {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 400;
+  font-size: 68px;
+  line-height: 75px;
+}
+
+$weightsMontserrat: (
+        500: 'Medium',
+        600: 'SemiBold'
+);
+
+@each $weight, $name in $weightsMontserrat {
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-display: swap;
+    src: url('/fonts/Montserrat/Montserrat-#{$name}.ttf') format('truetype');
+    font-weight: $weight;
+  }
+}
+
+@mixin MontserratSemiBold18() {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@mixin MontserratMedium26() {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 31px;
+}

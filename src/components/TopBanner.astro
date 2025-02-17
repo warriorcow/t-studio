@@ -1,0 +1,140 @@
+---
+import { Image } from "astro:assets";
+import Container from './UI/Container.astro';
+import Button from './UI/Button.astro';
+import LinkArrow from '../assets/link-arrow.svg';
+import TopBannerBg1 from '../assets/top-banner-bg-1.png';
+import TopBannerBg2 from '../assets/top-banner-bg-2.png';
+---
+
+<Container>
+  <div class="top-banner">
+    <div class="top-banner__head">
+      <div class="top-banner__title">
+        Т-студиaaa
+      </div>
+      <div class="top-banner__description">
+        технологии, которые работают
+        на ваш бизнес
+      </div>
+    </div>
+
+    <div class="top-banner__footer">
+      <div class="top-banner__item">
+        <div class="top-banner__item-head">
+          <span>10+</span>
+        </div>
+        <div class="top-banner__item-footer">
+          <p>лет опыта</p>
+        </div>
+        <Image class="top-banner__item-bg" src={TopBannerBg1} alt="T-Studio Logo" />
+      </div>
+      <div class="top-banner__item">
+        <div class="top-banner__item-head">
+          <span>350+</span>
+        </div>
+        <div class="top-banner__item-footer">
+          <p>проектов реализовано</p>
+        </div>
+        <Image class="top-banner__item-bg" src={TopBannerBg2} alt="T-Studio Logo" />
+      </div>
+      <div class="top-banner__item">
+        <div class="top-banner__item-head">
+          <span>95%</span>
+          <p>клиентов остаются с нами</p>
+        </div>
+        <div class="top-banner__item-footer">
+          <Button
+              class="top-banner__button"
+              text="Оценить проект"
+              size="large"
+              view="ghost"
+              iconRightSrc={LinkArrow}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</Container>
+
+<style lang="scss" is:global>
+  .top-banner {
+    &__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-right: 65px;
+    }
+
+    &__title {
+      @include UnboundedMedium86;
+
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    &__description {
+      @include MontserratMedium26;
+
+      box-sizing: content-box;
+      max-width: 452px;
+      padding-left: 20px;
+    }
+
+    &__footer {
+      display: grid;
+      grid-template-columns: 264px 264px 1fr;
+      grid-gap: 0 24px;
+      margin-top: 31px;
+    }
+
+    &__item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 327px;
+      background-color: $accent;
+      color: $secondary;
+      padding: 30px;
+      border-radius: 30px;
+      overflow: hidden;
+
+      & > * {
+        z-index: 2;
+      }
+
+      p {
+        @include MontserratMedium26;
+
+        align-self: flex-end;
+      }
+
+      span {
+        @include UnboundedRegular68;
+      }
+
+      &-head {
+        display: flex;
+        gap: 0 44px;
+      }
+
+      &-footer {
+
+      }
+
+      &-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+      }
+    }
+
+    &__button {
+      margin-left: auto;
+    }
+  }
+</style>

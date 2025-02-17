@@ -1,0 +1,74 @@
+---
+import { Image } from 'astro:assets';
+import LogoImage from '../assets/logo.svg';
+import Button from './UI/Button.astro';
+import Container from './UI/Container.astro';
+
+interface Props {
+  menu_list: {
+    href: string;
+    text: string;
+  }[];
+}
+
+const { menu_list } = Astro.props;
+---
+
+<header class="header">
+  <Container class="header__container">
+    <div class="header__logo">
+      <Image
+          src={LogoImage}
+          alt="T-Studio Logo"
+      />
+    </div>
+    <div class="header__side">
+      <nav class="header__nav">
+        {
+          menu_list.map(menu =>
+              <a class="header__link" href={menu.href}>{menu.text}</a>
+          )
+        }
+      </nav>
+      <Button
+          text="Оценить проект"
+      />
+    </div>
+  </Container>
+</header>
+
+<style is:global lang="scss">
+  .header {
+    width: 100%;
+    padding: 18px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $secondary;
+
+    &__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__logo {
+      width: 185px;
+      height: 42px;
+    }
+
+    &__side {
+      display: flex;
+      align-items: center;
+      gap: 0 44px;
+    }
+
+    &__nav {
+      @include MontserratSemiBold18;
+
+      display: flex;
+      align-items: center;
+      gap: 0 44px;
+    }
+  }
+</style>

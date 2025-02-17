@@ -1,0 +1,75 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  text: string
+  iconRightSrc?: string
+  href?: string
+  size?: 'small' | 'medium' | 'large'
+  view?: 'default' | 'ghost'
+  class?: string
+}
+
+const {
+  class: className,
+  iconRightSrc,
+  text,
+  href,
+  size = 'small',
+  view = 'default',
+  ...rest
+} = Astro.props;
+
+const Element = href ? 'a' : 'button';
+---
+<Element class:list={[
+  'button',
+  size === 'small' && 'button--small',
+  size === 'medium' && 'button--medium',
+  size === 'large' && 'button--large',
+  view === 'ghost' && 'button--ghost',
+  className
+]} href={href} {...rest}>
+  {text}
+
+  {iconRightSrc && <Image class="button__icon-right" src={iconRightSrc} alt="link-icon" />}
+</Element>
+
+
+<style is:global lang="scss">
+  .button {
+    @include MontserratSemiBold18;
+
+    background-color: $accent;
+    color: $secondary;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+
+    &--small {
+      padding: 12px 40px;
+    }
+
+    &--medium {}
+
+    &--large {
+      border-radius: 90px;
+      padding: 18.5px 48px;
+    }
+
+    &--default {}
+
+    &--ghost {
+      @include MontserratMedium26;
+
+      background-color: transparent;
+      border: 3px solid $secondary;
+    }
+
+    &__icon-right {
+      width: 32px;
+      height: 32px;
+      margin-left: 22px;
+    }
+  }
+</style>

@@ -1,0 +1,56 @@
+---
+import { Image } from "astro:assets";
+import Logo from '../assets/alfa_logo.svg';
+---
+
+<div class="marquee-slider">
+  <div class="swiper">
+    <div class="marquee-slider__wrapper swiper-wrapper">
+      {[...Array(30)].map(_ =>
+        <div class="marquee-slider__slide swiper-slide">
+          <Image src={Logo} alt="Logo" />
+        </div>
+      )}
+    </div>
+  </div>
+</div>
+
+<style is:global lang="scss">
+  .marquee-slider {
+    & &__wrapper {
+      transition-timing-function: linear;
+    }
+
+    & &__slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 318px;
+      height: 64px;
+
+      img {
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+</style>
+
+<script>
+  import Swiper from 'swiper';
+  import { Autoplay } from 'swiper/modules';
+  import 'swiper/css';
+
+  new Swiper(".swiper", {
+    modules: [Autoplay],
+    slidesPerView: 'auto',
+    spaceBetween: 20,
+    loop: true,
+    freeMode: true,
+    speed: 6000,
+    autoplay: {
+      delay: 0
+    }
+  });
+</script>
+
