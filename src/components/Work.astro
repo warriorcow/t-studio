@@ -1,0 +1,45 @@
+---
+import GradientTitle from "./UI/GradientTitle.astro";
+import Container from "./UI/Container.astro";
+import WorkCard from "./WorkCard.astro";
+---
+
+<Container gap>
+  <div class="work">
+    <GradientTitle text="Как мы работаем" tag="h2" />
+
+    <div class="work__content">
+      <WorkCard
+          number="01"
+          title="Связь и диагностика"
+          text="После заявки мы свяжемся с вами, чтобы уточнить провести бриф и разобраться в задаче."
+      />
+      <WorkCard
+          number="02"
+          title="Гарантия конфиденциальности"
+          text="Если необходимо, подписываем NDA, чтобы защитить данные."
+      />
+      <WorkCard
+          number="03"
+          title="Предоставление оффера"
+          text="Готовим детальный проектный план: технологии, сроки, стоимость."
+      />
+      <WorkCard
+          number="04"
+          title="Быстрый старт"
+          text="Подписываем договор и запускаем работу."
+      />
+    </div>
+  </div>
+</Container>
+
+<style lang="scss" is:global>
+  .work {
+    &__content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 24px;
+      margin-top: 50px;
+    }
+  }
+</style>

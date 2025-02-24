@@ -1,9 +1,18 @@
 ---
-const { class: className, ...rest } = Astro.props
+interface Props {
+  class?: string
+  gap?: boolean
+}
+
+const {
+  class: className,
+  gap,
+  ...rest
+} = Astro.props
 ---
-<div class:list={["container", className]} {...rest}>
+<section class:list={["container", gap ? 'container--gap' : '', className]} {...rest}>
   <slot />
-</div>
+</section>
 
 <style is:global lang="scss">
   .container {
@@ -11,5 +20,9 @@ const { class: className, ...rest } = Astro.props
     max-width: 1188px;
     margin: 0 auto;
     padding: 0 30px;
+
+    &--gap {
+      padding: $gap_section 30px;
+    }
   }
 </style>

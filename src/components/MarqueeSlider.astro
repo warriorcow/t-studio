@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import Logo from '../assets/alfa_logo.svg';
 ---
 
-<div class="marquee-slider">
+<section class="marquee-slider">
   <div class="swiper">
     <div class="marquee-slider__wrapper swiper-wrapper">
       {[...Array(30)].map(_ =>
@@ -13,10 +13,12 @@ import Logo from '../assets/alfa_logo.svg';
       )}
     </div>
   </div>
-</div>
+</section>
 
 <style is:global lang="scss">
   .marquee-slider {
+    padding: 22px 0 24px;
+
     & &__wrapper {
       transition-timing-function: linear;
     }

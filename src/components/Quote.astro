@@ -1,0 +1,26 @@
+---
+import Container from './UI/Container.astro';
+import GradientTitle from "./UI/GradientTitle.astro";
+---
+
+<Container gap>
+  <div class="quote">
+    <GradientTitle
+        text="Мы не просто кодим&nbsp;— мы решаем задачи бизнеса"
+        tag="h2"
+    />
+    <p class="quote__subtext">Автоматизируем процессы, улучшаем цифровые продукты, помогаем компаниям расти за счет IT-решений. Разрабатываем программное обеспечение, которое упрощает работу, снижает затраты и увеличивает прибыль.</p>
+  </div>
+</Container>
+
+<style lang="scss" is:global>
+  .quote {
+    &__subtext {
+      @include MontserratSemiBold18;
+
+      max-width: 648px;
+      width: 100%;
+      margin: 20px 0 0 auto;
+    }
+  }
+</style>

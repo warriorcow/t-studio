@@ -12,7 +12,7 @@ const __dirname = dirname(__filename);
 export default defineConfig({
   site: 'https://warriorcow.github.io/t-studio/',
   outDir: 'dist',
-  base: '/t-studio/',
+  base: '/',
   trailingSlash: "always",
   assetsPrefix: 'https://cdn.example.com',
   compressHTML: false,
@@ -28,7 +28,7 @@ export default defineConfig({
     build: {
       rollupOptions: {
         output: {
-          manualChunks: undefined, // Отключаем разбиение на чанки
+          manualChunks: undefined
         },
       },
     },

@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  number: string
+  title: string
+  text: string
+}
+
+const { number, title, text } = Astro.props;
+---
+
+<div class="work-card">
+  <div class="work-card__number">
+    {number}
+  </div>
+  <div class="work-card__content">
+    <div class="work-card__title">
+      {title}
+    </div>
+    <div class="work-card__text">
+      {text}
+    </div>
+  </div>
+</div>
+
+<style is:global lang="scss">
+  .work-card {
+    padding: 30px;
+    border-radius: 20px;
+    background-color: $primary;
+    color: $secondary;
+
+    &__number {
+      @include UnboundedRegular68;
+
+      color: #6DE8DD;
+    }
+
+    &__content {
+      margin-top: 50px;
+    }
+
+    &__title {
+      @include MontserratMedium26;
+    }
+
+    &__text {
+      @include MontserratMedium18;
+
+      margin-top: 20px;
+    }
+  }
+</style>

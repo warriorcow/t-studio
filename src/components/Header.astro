@@ -45,6 +45,7 @@ const { menu_list } = Astro.props;
     top: 0;
     left: 0;
     background-color: $secondary;
+    z-index: 10;
 
     &__container {
       display: flex;
@@ -61,6 +62,10 @@ const { menu_list } = Astro.props;
       display: flex;
       align-items: center;
       gap: 0 44px;
+    }
+
+    &__link {
+      color: $primary;
     }
 
     &__nav {
