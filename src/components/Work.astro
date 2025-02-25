@@ -1,12 +1,16 @@
 ---
-import GradientTitle from "./UI/GradientTitle.astro";
+import Title from "./UI/Title.astro";
 import Container from "./UI/Container.astro";
 import WorkCard from "./WorkCard.astro";
 ---
 
 <Container gap>
   <div class="work">
-    <GradientTitle text="Как мы работаем" tag="h2" />
+    <Title
+        color="gradient"
+        text="Как мы работаем"
+        tag="h2"
+    />
 
     <div class="work__content">
       <WorkCard
