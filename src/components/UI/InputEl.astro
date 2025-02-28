@@ -1,0 +1,42 @@
+---
+interface Props {
+  class?: string
+  type: boolean
+  placeholder?: string
+}
+
+const {
+  class: className,
+  type,
+  ...rest
+} = Astro.props
+---
+<label class="input">
+  <input
+      class:list={["input__el", className]} {...rest}
+      type={type}
+  >
+</label>
+
+<style is:global lang="scss">
+  .input {
+    width: 100%;
+
+    &__el {
+      @include MontserratMedium18;
+
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #DADADA;
+      padding: 5px;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: rgba(43, 43, 43, 0.5);
+      }
+    }
+  }
+</style>

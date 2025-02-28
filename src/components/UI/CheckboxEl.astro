@@ -1,0 +1,57 @@
+---
+interface Props {
+  class?: string
+}
+
+const {
+  class: className,
+  ...rest
+} = Astro.props
+---
+
+<label class="checkbox">
+  <input
+      class:list={["checkbox__el", className]} {...rest}
+      type="checkbox"
+  >
+  <span class="checkbox__input" />
+  <span class="checkbox__text">
+    <slot />
+  </span>
+</label>
+
+<style is:global lang="scss">
+  .checkbox {
+    @include MontserratMedium13;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 0 10px;
+    width: 100%;
+    color: rgba(43, 43, 43, 0.5);
+    cursor: pointer;
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    &__el {
+      display: none;
+
+      &:checked + .checkbox__input {
+        background: #3F65FF;
+        border-color: #3F65FF;
+      }
+    }
+
+    &__input {
+      display: block;
+      aspect-ratio: 1;
+      width: 15px;
+      height: 15px;
+      border: 1px solid #232323;
+      border-radius: 1px;
+    }
+  }
+</style>

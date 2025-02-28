@@ -1,10 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import Logo from '../assets/alfa_logo.svg';
+import Logo from '../assets/auchan_logo.svg';
 ---
 
 <section class="marquee-slider">
-  <div class="swiper">
+  <div class="marquee-slider__swiper swiper">
     <div class="marquee-slider__wrapper swiper-wrapper">
       {[...Array(30)].map(_ =>
         <div class="marquee-slider__slide swiper-slide">
@@ -43,7 +43,7 @@ import Logo from '../assets/alfa_logo.svg';
   import { Autoplay } from 'swiper/modules';
   import 'swiper/css';
 
-  new Swiper(".swiper", {
+  new Swiper(".marquee-slider__swiper", {
     modules: [Autoplay],
     slidesPerView: 'auto',
     spaceBetween: 20,

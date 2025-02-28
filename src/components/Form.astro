@@ -1,0 +1,73 @@
+---
+import Container from './UI/Container.astro';
+import Title from "./UI/Title.astro";
+import Button from "./UI/Button.astro";
+import {Image} from "astro:assets";
+import InputEl from "./UI/InputEl.astro";
+import CheckboxEl from "./UI/CheckboxEl.astro";
+---
+
+<Container gap>
+  <div class="form">
+    <div class="form__content">
+      <Title color="secondary" tag="h2" text="Пообщаться с нами" hasArrow arrowPosition="right" />
+      <div class="form__description">
+        Оставьте заявку и мы свяжемся с вами в течении одного рабочего дня.
+      </div>
+    </div>
+    <form class="form__inner">
+      <InputEl type="text" placeholder="Как Вас зовут? *" />
+      <InputEl type="text" placeholder="Название компании *" />
+      <InputEl type="text" placeholder="Должность *" />
+      <InputEl type="text" placeholder="Email *" />
+      <InputEl type="text" placeholder="Номер телефона *" />
+      <InputEl type="text" placeholder="Опишите кратко вашу задачу *" />
+
+      <CheckboxEl>
+        Я даю согласие на обработку персональных данных и согласен с <a href="#">условиями пользовательского соглашения и политики обработки персональных данных.</a>
+      </CheckboxEl>
+
+      <Button text="Отправить" />
+    </form>
+  </div>
+</Container>
+
+<style lang="scss" is:global>
+  .form {
+    display: grid;
+    grid-template-columns: 1fr 516px;
+    border-radius: 20px;
+
+    &__content {
+      width: calc(100% + 40px);
+      margin-right: -40px;
+      padding: 40px 20px 40px 40px;
+      background-color: #3F65FF;
+      color: $secondary;
+      /*background: linear-gradient(294.8deg, rgba(0, 0, 0, 0.24) 27.03%, rgba(0, 0, 0, 0.8) 60.74%), url('../assets/form-bg.png');*/
+      /*mix-blend-mode: plus-lighter;*/
+      border-radius: 20px;
+    }
+
+    &__description {
+      @include MontserratMedium26;
+
+      margin-top: 20px;
+      max-width: 395px;
+    }
+
+    &__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 40px 0;
+      padding: 50px;
+      border-radius: 20px;
+      background-color: $secondary;
+      border: 1px solid $primary;
+    }
+  }
+</style>
+
+<script>
+
+</script>

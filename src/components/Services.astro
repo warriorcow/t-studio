@@ -3,13 +3,14 @@ import Container from './UI/Container.astro';
 import Button from "./UI/Button.astro";
 import ServiceCard from "./ServiceCard.astro";
 import ServiceIcon1 from "../assets/service-icon-1.svg";
+import Title from "./UI/Title.astro";
 ---
 
 <Container gap>
   <div class="services">
     <div class="services__column services__column--sticky">
       <div class="services__sticky">
-        <div class="services__title">Услуги</div>
+        <Title tag="h2" text="Услуги" />
         <p class="services__description">Анализируем, проектируем, внедряем и поддерживаем.
           <a href="#">Делаем так, чтобы IT работало на вас, а не наоборот.</a>
         </p>
@@ -88,10 +89,6 @@ import ServiceIcon1 from "../assets/service-icon-1.svg";
       &:nth-child(2) {
         margin: auto 0;
       }
-    }
-
-    &__title {
-      @include UnboundedRegular68;
     }
 
     &__description {

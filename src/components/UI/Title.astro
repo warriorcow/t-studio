@@ -2,8 +2,10 @@
 interface Props {
   tag: string
   text: string
-  color?: 'lightblue' | 'gradient'
+  color?: 'lightblue' | 'gradient' | 'secondary'
   isBlock?: boolean
+  hasArrow?: boolean
+  arrowPosition?: 'left' | 'right'
 }
 
 const {
@@ -11,13 +13,15 @@ const {
   text,
   gradient,
   color,
-  isBlock
+  isBlock,
+  hasArrow,
+  arrowPosition = 'left'
 } = Astro.props;
 
 const Element = tag;
 ---
 
-<Element class:list={['title', color && `title--${color}`, isBlock && `title--block`]}>
+<Element class:list={['title', color && `title--${color}`, isBlock && `title--block`, hasArrow && `title--arrow`, arrowPosition && `title--arrow-${arrowPosition}`]}>
   {text}
 </Element>
 
@@ -27,15 +31,36 @@ const Element = tag;
 
     color: $primary;
 
-    &::before {
-      content: '';
-      display: inline-flex;
-      width: 126px;
-      min-width: 126px;
-      height: 55px;
-      mask: url("../../assets/arrow-big.svg");
-      margin-right: 42px;
-      background-color: $primary;
+    &--arrow {
+      &::before {
+        content: '';
+        display: inline-flex;
+        width: 126px;
+        min-width: 126px;
+        height: 55px;
+        mask: url("../../assets/arrow-big.svg");
+        margin-right: 42px;
+        background-color: $primary;
+      }
+
+      &-right {
+        &::before {
+          display: none;
+        }
+
+        &::after {
+          position: relative;
+          content: '';
+          display: inline-flex;
+          width: 126px;
+          min-width: 126px;
+          height: 55px;
+          mask: url("../../assets/arrow-big.svg");
+          margin-left: 42px;
+          top: 8px;
+          background-color: $primary;
+        }
+      }
     }
 
     &--block {
@@ -53,8 +78,21 @@ const Element = tag;
       background-clip: text;
       text-fill-color: transparent;
 
-      &::before {
+      &::before, &::after {
         background-color: #6DE8DD;
+      }
+    }
+
+    &--secondary {
+      color: $secondary;
+      background: $secondary;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+
+      &::before, &::after {
+        background-color: $secondary;
       }
     }
 
@@ -65,7 +103,7 @@ const Element = tag;
       background-clip: text;
       text-fill-color: transparent;
 
-      &::before {
+      &::before, &::after {
         background-color: #3F65FF;
       }
     }
