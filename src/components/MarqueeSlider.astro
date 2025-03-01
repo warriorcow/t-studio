@@ -18,6 +18,10 @@ import Logo from '../assets/auchan_logo.svg';
 <style is:global lang="scss">
   .marquee-slider {
     padding: 22px 0 24px;
+    
+    @include media(md) {
+      display: none;
+    }
 
     & &__wrapper {
       transition-timing-function: linear;

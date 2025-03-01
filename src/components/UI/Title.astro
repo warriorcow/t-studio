@@ -31,6 +31,10 @@ const Element = tag;
 
     color: $primary;
 
+    @include media(md) {
+      @include UnboundedMedium30;
+    }
+
     &--arrow {
       &::before {
         content: '';
@@ -41,6 +45,10 @@ const Element = tag;
         mask: url("../../assets/arrow-big.svg");
         margin-right: 42px;
         background-color: $primary;
+
+        @include media(md) {
+          display: none;
+        }
       }
 
       &-right {
@@ -59,6 +67,10 @@ const Element = tag;
           margin-left: 42px;
           top: 8px;
           background-color: $primary;
+
+          @include media(md) {
+            display: none;
+          }
         }
       }
     }

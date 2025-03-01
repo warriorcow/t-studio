@@ -53,6 +53,11 @@ const menu_list = [
   body {
     margin-top: $header_height;
     background-color: $secondary;
+    overflow-x: hidden;
+
+    @include media(md) {
+      margin-top: $header_height_mobile;
+    }
   }
 
   img {

@@ -21,8 +21,16 @@ const {
     margin: 0 auto;
     padding: 0 30px;
 
+    @include media(md) {
+      padding: 0 10px;
+    }
+
     &--gap {
       padding: $gap_section 30px;
+
+      @include media(md) {
+        padding: $gap_section_mobile 10px;
+      }
     }
   }
 </style>

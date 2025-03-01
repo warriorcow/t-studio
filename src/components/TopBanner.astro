@@ -22,16 +22,16 @@ import TopBannerBg2 from '../assets/top-banner-bg-2.png';
     <div class="top-banner__footer">
       <div class="top-banner__item">
         <div class="top-banner__item-head">
-          <span>10+</span>
+          <span class="top-banner__item-title">10+</span>
         </div>
         <div class="top-banner__item-footer">
-          <p>лет опыта</p>
+          <p>лет <br>опыта</p>
         </div>
         <Image class="top-banner__item-bg" src={TopBannerBg1} alt="T-Studio Logo" />
       </div>
       <div class="top-banner__item">
         <div class="top-banner__item-head">
-          <span>350+</span>
+          <span class="top-banner__item-title">350+</span>
         </div>
         <div class="top-banner__item-footer">
           <p>проектов реализовано</p>
@@ -40,8 +40,8 @@ import TopBannerBg2 from '../assets/top-banner-bg-2.png';
       </div>
       <div class="top-banner__item">
         <div class="top-banner__item-head">
-          <span>95%</span>
-          <p>клиентов остаются с нами</p>
+          <span class="top-banner__item-title">95%</span>
+          <p>клиентов<span>остаются с нами</span></p>
         </div>
         <div class="top-banner__item-footer">
           <Button
@@ -51,6 +51,10 @@ import TopBannerBg2 from '../assets/top-banner-bg-2.png';
               view="ghost"
               iconRightSrc={LinkArrow}
           />
+          <Button
+              class="top-banner__button--mobile"
+              text="Оценить проект"
+          />
         </div>
       </div>
     </div>
@@ -59,11 +63,21 @@ import TopBannerBg2 from '../assets/top-banner-bg-2.png';
 
 <style lang="scss" is:global>
   .top-banner {
+    @include media(md) {
+      margin-top: 20px;
+    }
+
     &__head {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-right: 65px;
+
+      @include media(md) {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-right: 0;
+      }
     }
 
     &__title {
@@ -71,6 +85,10 @@ import TopBannerBg2 from '../assets/top-banner-bg-2.png';
 
       text-transform: uppercase;
       white-space: nowrap;
+
+      @include media(md) {
+        @include UnboundedMedium45;
+      }
     }
 
     &__description {
@@ -79,13 +97,26 @@ import TopBannerBg2 from '../assets/top-banner-bg-2.png';
       box-sizing: content-box;
       max-width: 452px;
       padding-left: 20px;
+
+      @include media(md) {
+        @include MontserratMedium18;
+
+        padding-left: 0;
+        margin-top: 10px;
+        max-width: 300px;
+      }
     }
 
     &__footer {
       display: grid;
       grid-template-columns: 264px 264px 1fr;
       grid-gap: 0 24px;
-      margin-top: 31px;
+      margin-top: 30px;
+
+      @include media(md) {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 50px 10px;
+      }
     }
 
     &__item {
@@ -100,6 +131,36 @@ import TopBannerBg2 from '../assets/top-banner-bg-2.png';
       border-radius: 30px;
       overflow: hidden;
 
+      @include media(md) {
+        padding: 10px;
+        border-radius: 10px;
+        min-height: 150px;
+        background-color: transparent;
+      }
+
+      &:last-child {
+        @include media(md) {
+          grid-column: span 2;
+          color: $accent;
+          padding: 0;
+          min-height: auto;
+
+          .top-banner__item-head {
+            margin: 0 auto;
+            gap: 10px;
+
+            p {
+              margin-top: 20px;
+
+              span {
+                display: block;
+                padding-left: 40px;
+              }
+            }
+          }
+        }
+      }
+
       & > * {
         z-index: 2;
       }
@@ -108,10 +169,18 @@ import TopBannerBg2 from '../assets/top-banner-bg-2.png';
         @include MontserratMedium26;
 
         align-self: flex-end;
+
+        @include media(md) {
+          @include MontserratMedium18;
+        }
       }
 
-      span {
+      &-title {
         @include UnboundedRegular68;
+
+        @include media(md) {
+          @include MontserratMedium40;
+        }
       }
 
       &-head {
@@ -120,7 +189,9 @@ import TopBannerBg2 from '../assets/top-banner-bg-2.png';
       }
 
       &-footer {
-
+        @include media(md) {
+          margin-top: 30px;
+        }
       }
 
       &-bg {
@@ -135,6 +206,19 @@ import TopBannerBg2 from '../assets/top-banner-bg-2.png';
 
     &__button {
       margin-left: auto;
+
+      @include media(md) {
+        display: none;
+      }
+
+      &--mobile {
+        display: none;
+        width: 100%;
+
+        @include media(md) {
+          display: block;
+        }
+      }
     }
   }
 </style>

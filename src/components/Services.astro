@@ -18,37 +18,40 @@ import Title from "./UI/Title.astro";
       </div>
     </div>
 
-    <div class="services__column">
-      <div class="services__subcolumn">
-        <ServiceCard
-            icon={ServiceIcon1}
-            title="Разработка ПО под ключ"
-            text="создаем программные решения с нуля, от идеи до внедрения."
-        />
-        <ServiceCard
-            icon={ServiceIcon1}
-            title="Разработка ПО под ключ"
-            text="создаем программные решения с нуля, от идеи до внедрения."
-        />
-        <ServiceCard
-            icon={ServiceIcon1}
-            title="Разработка ПО под ключ"
-            text="создаем программные решения с нуля, от идеи до внедрения."
-        />
+    <div class="services__column services__column--slider swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="services__subcolumn">
+            <ServiceCard
+                icon={ServiceIcon1}
+                title="Разработка ПО под ключ"
+                text="создаем программные решения с нуля, от идеи до внедрения."
+            />
+            <ServiceCard
+                icon={ServiceIcon1}
+                title="Разработка ПО под ключ"
+                text="создаем программные решения с нуля, от идеи до внедрения."
+            />
+            <ServiceCard
+                icon={ServiceIcon1}
+                title="Разработка ПО под ключ"
+                text="создаем программные решения с нуля, от идеи до внедрения."
+            />
+          </div>
+          <div class="services__subcolumn swiper-slide">
+            <ServiceCard
+                icon={ServiceIcon1}
+                title="Разработка ПО под ключ"
+                text="создаем программные решения с нуля, от идеи до внедрения."
+            />
+            <ServiceCard
+                icon={ServiceIcon1}
+                title="Разработка ПО под ключ"
+                text="создаем программные решения с нуля, от идеи до внедрения."
+            />
+          </div>
+        </div>
       </div>
-      <div class="services__subcolumn">
-        <ServiceCard
-            icon={ServiceIcon1}
-            title="Разработка ПО под ключ"
-            text="создаем программные решения с нуля, от идеи до внедрения."
-        />
-        <ServiceCard
-            icon={ServiceIcon1}
-            title="Разработка ПО под ключ"
-            text="создаем программные решения с нуля, от идеи до внедрения."
-        />
-      </div>
-
     </div>
   </div>
 </Container>
@@ -60,15 +63,37 @@ import Title from "./UI/Title.astro";
     grid-template-columns: 384px 1fr;
     position: relative;
 
+    @include media(md) {
+      grid-template-columns: 1fr;
+    }
+
     &__column {
       display: flex;
       gap: 24px;
+
+      @include media(md) {
+        margin-top: 30px;
+      }
 
       &--sticky {
         display: flex;
         gap: 24px;
         flex-direction: column;
         align-items: center;
+
+        @include media(md) {
+          margin-top: 0;
+          align-items: flex-start;
+        }
+      }
+
+      &--slider {
+        width: 100vw;
+        overflow: hidden;
+
+        .swiper-slide {
+          display: flex;
+        }
       }
     }
 
@@ -86,6 +111,11 @@ import Title from "./UI/Title.astro";
       flex-direction: column;
       gap: 24px;
 
+      @include media(md) {
+        flex-direction: row;
+        gap: 0 10px;
+      }
+
       &:nth-child(2) {
         margin: auto 0;
       }
@@ -96,3 +126,15 @@ import Title from "./UI/Title.astro";
     }
   }
 </style>
+
+<script>
+  import Swiper from 'swiper';
+  import { Scrollbar } from "swiper/modules";
+  import 'swiper/css';
+
+  new Swiper(".services__column--slider", {
+    modules: [Scrollbar],
+    direction: "horizontal",
+    freeMode: true
+  });
+</script>
