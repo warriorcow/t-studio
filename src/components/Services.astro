@@ -14,45 +14,38 @@ import Title from "./UI/Title.astro";
         <p class="services__description">Анализируем, проектируем, внедряем и поддерживаем.
           <a href="#">Делаем так, чтобы IT работало на вас, а не наоборот.</a>
         </p>
-        <Button text="Оценить проект" />
+        <Button class="services__button" text="Оценить проект" />
       </div>
     </div>
 
-    <div class="services__column services__column--slider swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="services__subcolumn">
-            <ServiceCard
-                icon={ServiceIcon1}
-                title="Разработка ПО под ключ"
-                text="создаем программные решения с нуля, от идеи до внедрения."
-            />
-            <ServiceCard
-                icon={ServiceIcon1}
-                title="Разработка ПО под ключ"
-                text="создаем программные решения с нуля, от идеи до внедрения."
-            />
-            <ServiceCard
-                icon={ServiceIcon1}
-                title="Разработка ПО под ключ"
-                text="создаем программные решения с нуля, от идеи до внедрения."
-            />
-          </div>
-          <div class="services__subcolumn swiper-slide">
-            <ServiceCard
-                icon={ServiceIcon1}
-                title="Разработка ПО под ключ"
-                text="создаем программные решения с нуля, от идеи до внедрения."
-            />
-            <ServiceCard
-                icon={ServiceIcon1}
-                title="Разработка ПО под ключ"
-                text="создаем программные решения с нуля, от идеи до внедрения."
-            />
-          </div>
-        </div>
-      </div>
+    <div class="services__column services__column--slider">
+      <ServiceCard
+          icon={ServiceIcon1}
+          title="Разработка ПО под ключ"
+          text="создаем программные решения с нуля, от идеи до внедрения."
+      />
+      <ServiceCard
+          icon={ServiceIcon1}
+          title="Разработка ПО под ключ"
+          text="создаем программные решения с нуля, от идеи до внедрения."
+      />
+      <ServiceCard
+          icon={ServiceIcon1}
+          title="Разработка ПО под ключ"
+          text="создаем программные решения с нуля, от идеи до внедрения."
+      />
+      <ServiceCard
+          icon={ServiceIcon1}
+          title="Разработка ПО под ключ"
+          text="создаем программные решения с нуля, от идеи до внедрения."
+      />
+      <ServiceCard
+          icon={ServiceIcon1}
+          title="Разработка ПО под ключ"
+          text="создаем программные решения с нуля, от идеи до внедрения."
+      />
     </div>
+    <Button class="services__button services__button--mobile" text="Оценить проект" />
   </div>
 </Container>
 
@@ -88,11 +81,33 @@ import Title from "./UI/Title.astro";
       }
 
       &--slider {
-        width: 100vw;
-        overflow: hidden;
+        @include media(md) {
+          overflow-x: auto;
+          margin: 30px -10px;
+          padding: 0 10px;
+          gap: 0 10px;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
 
-        .swiper-slide {
-          display: flex;
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
+
+        .service-card {
+          margin-bottom: 24px;
+
+          @include media(md) {
+            margin-bottom: 0;
+          }
+
+          &:nth-child(2) {
+            margin-top: 203px;
+
+            @include media(md) {
+              margin-top: 0;
+            }
+          }
         }
       }
     }
@@ -104,6 +119,12 @@ import Title from "./UI/Title.astro";
       position: sticky;
       top: calc(50vh - $header_height);
       gap: 30px 0;
+      
+      .services__button {
+        @include media(md) {
+          display: none;
+        }
+      }
     }
 
     &__subcolumn {
@@ -124,17 +145,43 @@ import Title from "./UI/Title.astro";
     &__description {
       @include MontserratMedium18;
     }
+
+    &__button {
+      &--mobile {
+        display: none;
+
+        @include media(md) {
+          display: block;
+        }
+      }
+    }
   }
 </style>
 
 <script>
-  import Swiper from 'swiper';
-  import { Scrollbar } from "swiper/modules";
-  import 'swiper/css';
+  import Masonry from "masonry-layout";
 
-  new Swiper(".services__column--slider", {
-    modules: [Scrollbar],
-    direction: "horizontal",
-    freeMode: true
-  });
+  let masonry;
+  const container = document.querySelector(".services__column--slider");
+
+  function initLayout() {
+    const isMobile = window.matchMedia("(max-width: 960px)").matches;
+
+    if (!isMobile) {
+      if (!masonry) {
+        masonry = new Masonry(container, {
+          itemSelector: ".service-card",
+          gutter: 24,
+        });
+      }
+    } else {
+      if (masonry) {
+        masonry.destroy(); // Уничтожаем Masonry, если он активен
+        masonry = null;
+      }
+    }
+  }
+
+  window.addEventListener("load", initLayout);
+  window.addEventListener("resize", initLayout);
 </script>

@@ -60,7 +60,7 @@ const { menu_list } = Astro.props;
     z-index: 10;
 
     @include media(md) {
-      padding: 10px 0;
+      padding: 11.5px 0;
     }
 
     &__container {
@@ -89,7 +89,7 @@ const { menu_list } = Astro.props;
         top: $header_height_mobile;
         width: 100%;
         height: calc(100dvh - $header_height_mobile);
-        background-color: salmon;
+        background-color: $secondary;
         flex-direction: column;
         justify-content: center;
         transform: translateX(0);
