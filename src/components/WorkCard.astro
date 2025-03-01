@@ -31,6 +31,10 @@ const { number, title, text } = Astro.props;
     background-color: $primary;
     color: $secondary;
 
+    @include media(md) {
+      padding: 30px 10px;
+    }
+
     &__number {
       @include UnboundedRegular68;
 
@@ -39,6 +43,10 @@ const { number, title, text } = Astro.props;
 
     &__content {
       margin-top: 50px;
+
+      @include media(md) {
+        margin-top: 30px;
+      }
     }
 
     &__title {
@@ -49,6 +57,10 @@ const { number, title, text } = Astro.props;
       @include MontserratMedium18;
 
       margin-top: 20px;
+
+      @include media(md) {
+        margin-top: 10px;
+      }
     }
   }
 </style>
