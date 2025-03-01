@@ -84,10 +84,20 @@ const tabs = [
     padding: 60px 0;
     overflow: hidden;
 
+    @include media(md) {
+      padding: 50px 10px;
+      margin: 0 -10px;
+      border-radius: 0;
+    }
+
     &__tabs {
       @include MontserratMedium26;
 
       margin-top: 50px;
+
+      @include media(md) {
+        @include MontserratMedium18;
+      }
 
       &-header {
         display: flex;
@@ -95,11 +105,26 @@ const tabs = [
         gap: 20px 40px;
         padding-left: 168px;
         padding-right: 20px;
+
+        @include media(md) {
+          flex-wrap: nowrap;
+          padding: 0 10px;
+          margin: 0 -10px;
+          gap: 20px;
+          overflow-x: auto;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
       }
 
       &-tab {
         cursor: pointer;
         position: relative;
+        white-space: nowrap;
 
         &::before {
           position: absolute;
@@ -127,6 +152,13 @@ const tabs = [
         display: flex;
         transition: transform 300ms ease-in-out;
         margin-top: 50px;
+
+
+        @include media(md) {
+          margin: 30px -10px 0;
+          box-sizing: border-box;
+          gap: 10px;
+        }
       }
 
       &-content {
@@ -138,8 +170,10 @@ const tabs = [
         padding-left: 168px;
         padding-right: 20px;
 
-        &.active {
-
+        @include media(md) {
+          padding: 0 10px;
+          gap: 10px;
+          margin-right: -10px;
         }
       }
     }
@@ -149,6 +183,10 @@ const tabs = [
       background-color: $secondary;
       color: $primary;
       border-radius: 10px;
+
+      @include media(md) {
+        padding: 10px 15px;
+      }
     }
   }
 </style>
