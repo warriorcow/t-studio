@@ -6,8 +6,8 @@
 		<link rel="icon" type="image/svg+xml" href="./favicon.svg">
 		<meta name="generator" content="Astro v5.3.0">
 		<title>Astro Basics</title>
-	<link rel="stylesheet" href="./_astro/swiper.DHBATib1.css">
-<link rel="stylesheet" href="./_astro/index.Dy0lsYU1.css"></head>
+	<link rel="stylesheet" href="./_astro/MarqueeSlider.DHBATib1.css">
+<link rel="stylesheet" href="./_astro/index.BwbJ8uZ5.css"></head>
 	<body>
     <header class="header">
   <section class="container header__container">
@@ -19,12 +19,26 @@
     <div class="header__side">
       <nav class="header__nav">
         <a class="header__link" href="./">О нас</a><a class="header__link" href="./">Услуги</a><a class="header__link" href="./">Примеры работ</a>
+        <button class="button button--small header__button">Оценить проект</button>
       </nav>
-      <button class="button button--small">Оценить проект</button>
+      <div class="header__contacts">
+        <a href="mailto:email@mail.ru">email@mail.ru</a>
+        <a href="tel:+7(999)999-99-99">+7(999)999-99-99</a>
+      </div>
+    </div>
+
+    <div class="header__hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   
 </section>
 </header>
+
+
+
+<script type="module">const e=document.querySelector(".header__hamburger"),o=document.querySelector(".header__side"),t=document.body,d=()=>{const c=o.classList.toggle("open");e.classList.toggle("open"),t.style.overflow=c?"hidden":""};e.addEventListener("click",d);const s=window.matchMedia("(min-width: 960px)"),n=()=>{s.matches&&(o.classList.remove("open"),e.classList.remove("open"),t.style.overflow="")};s.addEventListener("change",n);n();</script>
     <main class="main">
       
   <section class="container container--gap">
@@ -43,17 +57,17 @@
     <div class="top-banner__footer">
       <div class="top-banner__item">
         <div class="top-banner__item-head">
-          <span>10+</span>
+          <span class="top-banner__item-title">10+</span>
         </div>
         <div class="top-banner__item-footer">
-          <p>лет опыта</p>
+          <p>лет <br>опыта</p>
         </div>
         
 <img src="./_astro/top-banner-bg-1.CrmukDiK_ulDkG.webp" alt="T-Studio Logo" width="264" height="327" loading="lazy" decoding="async" class="top-banner__item-bg">
       </div>
       <div class="top-banner__item">
         <div class="top-banner__item-head">
-          <span>350+</span>
+          <span class="top-banner__item-title">350+</span>
         </div>
         <div class="top-banner__item-footer">
           <p>проектов реализовано</p>
@@ -63,12 +77,13 @@
       </div>
       <div class="top-banner__item">
         <div class="top-banner__item-head">
-          <span>95%</span>
-          <p>клиентов остаются с нами</p>
+          <span class="top-banner__item-title">95%</span>
+          <p>клиентов<span>остаются с нами</span></p>
         </div>
         <div class="top-banner__item-footer">
           <button class="button button--large button--ghost top-banner__button">Оценить проект
 <img src="./_astro/link-arrow.oa85yKWE_MjX8p.svg" alt="link-icon" width="35" height="35" loading="lazy" decoding="async" class="button__icon-right"></button>
+          <button class="button button--small top-banner__button--mobile">Оценить проект</button>
         </div>
       </div>
     </div>
@@ -175,7 +190,7 @@
 
 
 
-<script type="module" src="./_astro/MarqueeSlider.astro_astro_type_script_index_0_lang.DJCKNibV.js"></script>
+<script type="module" src="./_astro/MarqueeSlider.astro_astro_type_script_index_0_lang.CMpPYSF3.js"></script>
   <section class="container container--gap">
   
   <div class="quote">
@@ -193,13 +208,12 @@
         <p class="services__description">Анализируем, проектируем, внедряем и поддерживаем.
           <a href="#">Делаем так, чтобы IT работало на вас, а не наоборот.</a>
         </p>
-        <button class="button button--small">Оценить проект</button>
+        <button class="button button--small services__button">Оценить проект</button>
       </div>
     </div>
 
-    <div class="services__column">
-      <div class="services__subcolumn">
-        <div class="service-card">
+    <div class="services__column services__column--slider">
+      <div class="service-card">
   <div class="service-card__icon">
     
 <img src="./_astro/service-icon-1.BiB_gG8s_1IECU3.svg" alt="Разработка ПО под ключ" width="49" height="48" loading="lazy" decoding="async">
@@ -213,7 +227,7 @@
     </div>
   </div>
 </div>
-        <div class="service-card">
+      <div class="service-card">
   <div class="service-card__icon">
     
 <img src="./_astro/service-icon-1.BiB_gG8s_1IECU3.svg" alt="Разработка ПО под ключ" width="49" height="48" loading="lazy" decoding="async">
@@ -227,7 +241,7 @@
     </div>
   </div>
 </div>
-        <div class="service-card">
+      <div class="service-card">
   <div class="service-card__icon">
     
 <img src="./_astro/service-icon-1.BiB_gG8s_1IECU3.svg" alt="Разработка ПО под ключ" width="49" height="48" loading="lazy" decoding="async">
@@ -241,9 +255,7 @@
     </div>
   </div>
 </div>
-      </div>
-      <div class="services__subcolumn">
-        <div class="service-card">
+      <div class="service-card">
   <div class="service-card__icon">
     
 <img src="./_astro/service-icon-1.BiB_gG8s_1IECU3.svg" alt="Разработка ПО под ключ" width="49" height="48" loading="lazy" decoding="async">
@@ -257,7 +269,7 @@
     </div>
   </div>
 </div>
-        <div class="service-card">
+      <div class="service-card">
   <div class="service-card__icon">
     
 <img src="./_astro/service-icon-1.BiB_gG8s_1IECU3.svg" alt="Разработка ПО под ключ" width="49" height="48" loading="lazy" decoding="async">
@@ -271,371 +283,20 @@
     </div>
   </div>
 </div>
-      </div>
-
     </div>
+    <button class="button button--small services__button services__button--mobile">Оценить проект</button>
   </div>
 
 </section>
-  <section class="container">
+
+
+
+<script type="module" src="./_astro/Services.astro_astro_type_script_index_0_lang.D94tqyDY.js"></script>
   
-  <div class="skills">
-    <h2 class="title title--lightblue title--block title--arrow title--arrow-left">Какие технологии используем</h2>
-
-    <div class="skills__tabs">
-      <div class="skills__tabs-header">
-        <div class="skills__tabs-tab">
-                Внешний интерфейс
-              </div><div class="skills__tabs-tab">
-                Бэкенд
-              </div><div class="skills__tabs-tab">
-                Фреймворки
-              </div><div class="skills__tabs-tab">
-                Мобильный
-              </div><div class="skills__tabs-tab">
-                Софтверный
-              </div>
-      </div>
-      <div class="skills__tabs-contents">
-        <div class="skills__tabs-content">
-                <div class="skills__tag">
-                        JavaScript
-                      </div><div class="skills__tag">
-                        React.js
-                      </div><div class="skills__tag">
-                        Vue.js
-                      </div><div class="skills__tag">
-                        Angular.js
-                      </div><div class="skills__tag">
-                        Svelte.js
-                      </div><div class="skills__tag">
-                        Ember.js
-                      </div>
-              </div><div class="skills__tabs-content">
-                <div class="skills__tag">
-                        PHP
-                      </div><div class="skills__tag">
-                        Laravel
-                      </div><div class="skills__tag">
-                        Go
-                      </div><div class="skills__tag">
-                        Java
-                      </div>
-              </div><div class="skills__tabs-content">
-                <div class="skills__tag">
-                        React.js
-                      </div><div class="skills__tag">
-                        Vue.js
-                      </div><div class="skills__tag">
-                        Angular.js
-                      </div>
-              </div><div class="skills__tabs-content">
-                <div class="skills__tag">
-                        Swift
-                      </div><div class="skills__tag">
-                        Dart
-                      </div>
-              </div><div class="skills__tabs-content">
-                <div class="skills__tag">
-                        C++
-                      </div><div class="skills__tag">
-                        C#
-                      </div>
-              </div>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-
-
-<script type="module">document.addEventListener("DOMContentLoaded",()=>{const t=document.querySelectorAll(".skills__tabs-tab"),s=document.querySelector(".skills__tabs-contents");t.forEach((e,c)=>{e.addEventListener("click",()=>{t.forEach(a=>a.classList.remove("active")),e.classList.add("active"),s.style.transform=`translateX(calc(-100% * ${c}))`})}),t.length>0&&t[0].classList.add("active")});</script>
-  <section class="container container--gap">
   
-  <div class="cases">
-    <div class="cases__header">
-      <h2 class="title title--arrow-left">Наши кейсы</h2>
-      <button class="button button--small">Оценить проект</button>
-
-      <div class="cases__navigation">
-        <div class="cases__arrow cases__arrow--prev"></div>
-        <div class="cases__arrow cases__arrow--next"></div>
-      </div>
-    </div>
-
-    <div class="cases__body">
-      <div class="cases__swiper swiper">
-        <div class="cases__wrapper swiper-wrapper">
-          <div class="cases__slide swiper-slide">
-                <div class="cases__item">
-                  <div class="cases__logo">
-                    
-<img src="./_astro/alfa_logo.RIGtDSQS_1oKRKN.svg" alt="Logo" width="288" height="37" loading="lazy" decoding="async">
-                  </div>
-                  <div class="cases__text">
-                    Разработка и интеграция сервисов для инвестиций
-                  </div>
-                  <button class="cases__button">
-                    Подробнее
-                  </button>
-                </div>
-              </div><div class="cases__slide swiper-slide">
-                <div class="cases__item">
-                  <div class="cases__logo">
-                    
-<img src="./_astro/gas_logo.DfOS5xfL_1JW1po.svg" alt="Logo" width="268" height="63" loading="lazy" decoding="async">
-                  </div>
-                  <div class="cases__text">
-                    Мобильное приложение и сайт-презентация
-                  </div>
-                  <button class="cases__button">
-                    Подробнее
-                  </button>
-                </div>
-              </div><div class="cases__slide swiper-slide">
-                <div class="cases__item">
-                  <div class="cases__logo">
-                    
-<img src="./_astro/auchan_logo.Dg5H1PZE_vBB0j.svg" alt="Logo" width="147" height="35" loading="lazy" decoding="async">
-                  </div>
-                  <div class="cases__text">
-                    Дизайн сайта
-                  </div>
-                  <button class="cases__button">
-                    Подробнее
-                  </button>
-                </div>
-              </div><div class="cases__slide swiper-slide">
-                <div class="cases__item">
-                  <div class="cases__logo">
-                    
-<img src="./_astro/alfa_logo.RIGtDSQS_1oKRKN.svg" alt="Logo" width="288" height="37" loading="lazy" decoding="async">
-                  </div>
-                  <div class="cases__text">
-                    Разработка и интеграция сервисов для инвестиций
-                  </div>
-                  <button class="cases__button">
-                    Подробнее
-                  </button>
-                </div>
-              </div><div class="cases__slide swiper-slide">
-                <div class="cases__item">
-                  <div class="cases__logo">
-                    
-<img src="./_astro/gas_logo.DfOS5xfL_1JW1po.svg" alt="Logo" width="268" height="63" loading="lazy" decoding="async">
-                  </div>
-                  <div class="cases__text">
-                    Мобильное приложение и сайт-презентация
-                  </div>
-                  <button class="cases__button">
-                    Подробнее
-                  </button>
-                </div>
-              </div><div class="cases__slide swiper-slide">
-                <div class="cases__item">
-                  <div class="cases__logo">
-                    
-<img src="./_astro/auchan_logo.Dg5H1PZE_vBB0j.svg" alt="Logo" width="147" height="35" loading="lazy" decoding="async">
-                  </div>
-                  <div class="cases__text">
-                    Дизайн сайта
-                  </div>
-                  <button class="cases__button">
-                    Подробнее
-                  </button>
-                </div>
-              </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-
-
-<script type="module" src="./_astro/Cases.astro_astro_type_script_index_0_lang.CG9JSmEa.js"></script>
-  <section class="container container--gap">
   
-  <div class="work">
-    <h2 class="title title--gradient title--arrow-left">Как мы работаем</h2>
-
-    <div class="work__content">
-      <div class="work-card">
-  <div class="work-card__number">
-    01
-  </div>
-  <div class="work-card__content">
-    <div class="work-card__title">
-      Связь и диагностика
-    </div>
-    <div class="work-card__text">
-      После заявки мы свяжемся с вами, чтобы уточнить провести бриф и разобраться в задаче.
-    </div>
-  </div>
-</div>
-      <div class="work-card">
-  <div class="work-card__number">
-    02
-  </div>
-  <div class="work-card__content">
-    <div class="work-card__title">
-      Гарантия конфиденциальности
-    </div>
-    <div class="work-card__text">
-      Если необходимо, подписываем NDA, чтобы защитить данные.
-    </div>
-  </div>
-</div>
-      <div class="work-card">
-  <div class="work-card__number">
-    03
-  </div>
-  <div class="work-card__content">
-    <div class="work-card__title">
-      Предоставление оффера
-    </div>
-    <div class="work-card__text">
-      Готовим детальный проектный план: технологии, сроки, стоимость.
-    </div>
-  </div>
-</div>
-      <div class="work-card">
-  <div class="work-card__number">
-    04
-  </div>
-  <div class="work-card__content">
-    <div class="work-card__title">
-      Быстрый старт
-    </div>
-    <div class="work-card__text">
-      Подписываем договор и запускаем работу.
-    </div>
-  </div>
-</div>
-    </div>
-  </div>
-
-</section>
-  <section class="container container--gap">
   
-  <div class="form">
-    <div class="form__content">
-      <h2 class="title title--secondary title--arrow title--arrow-right">Пообщаться с нами</h2>
-      <div class="form__description">
-        Оставьте заявку и мы свяжемся с вами в течении одного рабочего дня.
-      </div>
-    </div>
-    <form class="form__inner">
-      <label class="input">
-  <input class="input__el" placeholder="Как Вас зовут? *" type="text">
-</label>
-      <label class="input">
-  <input class="input__el" placeholder="Название компании *" type="text">
-</label>
-      <label class="input">
-  <input class="input__el" placeholder="Должность *" type="text">
-</label>
-      <label class="input">
-  <input class="input__el" placeholder="Email *" type="text">
-</label>
-      <label class="input">
-  <input class="input__el" placeholder="Номер телефона *" type="text">
-</label>
-      <label class="input">
-  <input class="input__el" placeholder="Опишите кратко вашу задачу *" type="text">
-</label>
-
-      <label class="checkbox">
-  <input class="checkbox__el" type="checkbox">
-  <span class="checkbox__input"></span>
-  <span class="checkbox__text">
-    
-        Я даю согласие на обработку персональных данных и согласен с <a href="#">условиями пользовательского соглашения и политики обработки персональных данных.</a>
-      
-  </span>
-</label>
-
-      <button class="button button--small">Отправить</button>
-    </form>
-  </div>
-
-</section>
-
-
-
-
-  <section class="container">
   
-  <footer class="footer">
-    <div class="footer__row">
-      
-<img src="./_astro/logo-colored.0PC2JWEh_Z1z53Sp.svg" alt="Logo" width="185" height="43" loading="lazy" decoding="async" class="footer__logo">
-    </div>
-    <div class="footer__row">
-      <p>
-        Общество с ограниченной<br>
-        ответственностью «Т-Студия»<br>
-        Томская область, ОГРН: 1157017007180, дата<br>
-        присвоения ОГРН: 22.04.2015<br>
-        ИНН: 7017375554, КПП: 701701001<br>
-        Директор: Дикович Татьяна Васильевна
-      </p>
-
-      <div class="footer__card">
-        <div class="footer__card-title">
-          Контакты:
-        </div>
-        <div class="footer__card-text">
-          <a href="mailto:email@mail.ru">email@mail.ru</a>
-          <a href="tel:+7(999)999-99-99">+7(999)999-99-99</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer__row footer__row--end">
-      <div>
-        <div class="footer__card">
-          <div class="footer__card-title">
-            Юридический адрес:
-          </div>
-          <div class="footer__card-text">
-            Томская обл., г. Томск ул., Больничная д.4/1
-          </div>
-        </div>
-        <div class="footer__card">
-          <div class="footer__card-title">
-            Фактический адрес:
-          </div>
-          <div class="footer__card-text">
-            634003,Томская обл., г. Томск ул., Больничная д.4/1
-          </div>
-        </div>
-      </div>
-      <div class="footer__card">
-        <div class="footer__card-title">
-          Банковские реквизиты:
-        </div>
-        <div class="footer__card-text">
-          ФИЛИАЛ «НОВОСИБИРСКИЙ» АО «АЛЬФА-БАНК»,<br>
-          БИК 045004774<br>
-          р/с 40702810523010001071<br>
-          к/с 30101810600000000774
-        </div>
-      </div>
-    </div>
-    <div class="footer__row">
-      <div class="footer__copyright">
-        <p>2025 Все права защищены.</p>
-        <p>
-          <a href="#">Пользовательское соглашение.</a>
-          <a href="#">Политика обработки персональных данных.</a>
-        </p>
-      </div>
-    </div>
-  </footer>
-
-</section>
 
     </main>
 	</body></html>
