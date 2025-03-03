@@ -34,7 +34,7 @@ import ColoredLogo from "../assets/logo-colored.svg";
       </div>
     </div>
     <div class="footer__row footer__row--end">
-      <div>
+      <div class="footer__column">
         <div class="footer__card">
           <div class="footer__card-title">
             Юридический адрес:
@@ -120,6 +120,15 @@ import ColoredLogo from "../assets/logo-colored.svg";
 
       &--end {
         align-items: flex-end;
+      }
+    }
+
+    &__column {
+      display: flex;
+      flex-direction: column;
+
+      @include media(md) {
+        gap: 30px 0;
       }
     }
 
