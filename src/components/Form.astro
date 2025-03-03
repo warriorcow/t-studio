@@ -8,7 +8,7 @@ import CheckboxEl from "./UI/CheckboxEl.astro";
 ---
 
 <Container gap>
-  <div class="form" data-aos="fade-up">
+  <div id="form" class="form">
     <div class="form__content">
       <Title color="secondary" tag="h2" text="Пообщаться с нами" hasArrow arrowPosition="right" />
       <div class="form__description">
@@ -25,7 +25,7 @@ import CheckboxEl from "./UI/CheckboxEl.astro";
         <InputEl id="description" type="text" placeholder="Опишите кратко вашу задачу *" />
 
         <CheckboxEl id="policy" required>
-          Я даю согласие на обработку персональных данных и согласен с <a href="#">условиями пользовательского соглашения и политики обработки персональных данных.</a>
+          Я даю согласие на обработку персональных данных и согласен с <a href="#">условиями пользовательского соглашения</a> и <a href="#">политики обработки персональных данных.</a>
         </CheckboxEl>
 
         <Button type="submit" text="Отправить" />

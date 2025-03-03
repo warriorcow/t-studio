@@ -14,6 +14,7 @@ export default defineConfig({
   trailingSlash: "always",
   assetsPrefix: 'https://cdn.example.com',
   compressHTML: false,
+
   devToolbar: {
     enabled: false
   },
@@ -21,6 +22,9 @@ export default defineConfig({
     inlineStylesheets: `never`,
   },
   vite: {
+    server: {
+      allowedHosts: true
+    },
     resolve: {
       alias: {
         '@/': `${path.resolve(__dirname, 'src')}/`

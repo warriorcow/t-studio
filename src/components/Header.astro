@@ -17,12 +17,12 @@ const { menu_list } = Astro.props;
 
 <header class="header">
   <Container class="header__container">
-    <div class="header__logo">
+    <a href="#main" class="header__logo">
       <Image
           src={LogoImage}
           alt="T-Studio Logo"
       />
-    </div>
+    </a>
     <div class="header__side">
       <nav class="header__nav">
         {
@@ -31,6 +31,7 @@ const { menu_list } = Astro.props;
           )
         }
         <Button
+            href="#form"
             class="header__button"
             text="Оценить проект"
         />

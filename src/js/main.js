@@ -10,7 +10,5 @@ import './Skills.js';
 import './Input.js';
 import "aos/dist/aos.css";
 window.addEventListener('load', () => {
-  AOS.init({
-    delay: 100,
-  });
+  AOS.init();
 })

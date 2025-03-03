@@ -41,14 +41,14 @@ const slides = [{
 }]
 ---
 
-<Container id="cases" gap data-aos="fade-up">
+<Container id="cases" gap>
   <div class="cases">
-    <div class="cases__header">
+    <div data-aos="fade-up" class="cases__header">
       <Title
           text="Наши кейсы"
           tag="h2"
       />
-      <Button class="cases__header-button" text="Оценить проект" />
+      <Button href="#form" class="cases__header-button" text="Оценить проект" />
 
       <div class="cases__navigation">
         <div class="cases__arrow cases__arrow--prev" />
@@ -85,7 +85,7 @@ const slides = [{
           )}
         </div>
       </div>
-      <Button class="cases__footer-button" text="Оценить проект" />
+      <Button href="#form" class="cases__footer-button" text="Оценить проект" />
     </div>
   </div>
 </Container>
