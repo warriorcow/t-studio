@@ -15,7 +15,7 @@ export default defineConfig({
   assetsPrefix: 'https://cdn.example.com',
   compressHTML: false,
   build: {
-    serverEntry: 'main.mjs'
+    inlineStylesheets: `never`,
   },
   vite: {
     resolve: {
