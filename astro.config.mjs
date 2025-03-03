@@ -14,6 +14,9 @@ export default defineConfig({
   trailingSlash: "always",
   assetsPrefix: 'https://cdn.example.com',
   compressHTML: false,
+  devToolbar: {
+    enabled: false
+  },
   build: {
     inlineStylesheets: `never`,
   },

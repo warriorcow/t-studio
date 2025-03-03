@@ -9,8 +9,8 @@ import Title from "./UI/Title.astro";
 <Container id="services" gap>
   <div class="services">
     <div class="services__column services__column--sticky">
-      <div class="services__sticky">
-        <Title tag="h2" text="Услуги" />
+      <div data-aos="fade-up" class="services__sticky">
+        <Title  tag="h2" text="Услуги" />
         <p class="services__description">Анализируем, проектируем, внедряем и поддерживаем.
           <a href="#">Делаем так, чтобы IT работало на вас, а не наоборот.</a>
         </p>
@@ -20,26 +20,35 @@ import Title from "./UI/Title.astro";
 
     <div class="services__column services__column--slider">
       <ServiceCard
+          data-aos="fade-up"
           icon={ServiceIcon1}
           title="Разработка ПО под ключ"
           text="создаем программные решения с нуля, от идеи до внедрения."
       />
       <ServiceCard
+          data-aos="fade-up"
+          data-aos-delay="100"
           icon={ServiceIcon1}
           title="Разработка ПО под ключ"
           text="создаем программные решения с нуля, от идеи до внедрения."
       />
       <ServiceCard
+          data-aos="fade-up"
+          data-aos-delay="200"
           icon={ServiceIcon1}
           title="Разработка ПО под ключ"
           text="создаем программные решения с нуля, от идеи до внедрения."
       />
       <ServiceCard
+          data-aos="fade-up"
+          data-aos-delay="300"
           icon={ServiceIcon1}
           title="Разработка ПО под ключ"
           text="создаем программные решения с нуля, от идеи до внедрения."
       />
       <ServiceCard
+          data-aos="fade-up"
+          data-aos-delay="400"
           icon={ServiceIcon1}
           title="Разработка ПО под ключ"
           text="создаем программные решения с нуля, от идеи до внедрения."

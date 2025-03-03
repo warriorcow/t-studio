@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/node": "^22.13.4",
+    "aos": "^2.3.4",
     "astro": "^5.3.0",
     "astro-relative-links": "^0.4.2",
     "inputmask": "^5.0.9",

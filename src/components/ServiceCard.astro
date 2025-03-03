@@ -7,10 +7,10 @@ interface Props {
   text: string
 }
 
-const { icon, title, text } = Astro.props;
+const { icon, title, text, ...rest } = Astro.props;
 ---
 
-<div class="service-card">
+<div class="service-card" {...rest}>
   <div class="service-card__icon">
     <Image src={icon} alt={title} />
   </div>

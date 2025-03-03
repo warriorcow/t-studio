@@ -15,13 +15,14 @@ const {
   color,
   isBlock,
   hasArrow,
-  arrowPosition = 'left'
+  arrowPosition = 'left',
+  ...rest
 } = Astro.props;
 
 const Element = tag;
 ---
 
-<Element class:list={['title', color && `title--${color}`, isBlock && `title--block`, hasArrow && `title--arrow`, arrowPosition && `title--arrow-${arrowPosition}`]}>
+<Element class:list={['title', color && `title--${color}`, isBlock && `title--block`, hasArrow && `title--arrow`, arrowPosition && `title--arrow-${arrowPosition}`]} {...rest}>
   {text}
 </Element>
 

@@ -7,10 +7,10 @@ interface Props {
   text: string
 }
 
-const { number, title, text } = Astro.props;
+const { number, title, text, ...rest } = Astro.props;
 ---
 
-<div class="work-card">
+<div class="work-card" {...rest}>
   <div class="work-card__number">
     {number}
   </div>
