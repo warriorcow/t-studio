@@ -6,8 +6,8 @@
 		<link rel="icon" type="image/svg+xml" href="./favicon.svg">
 		<meta name="generator" content="Astro v5.3.0">
 		<title>Astro Basics</title>
-	<link rel="stylesheet" href="./_astro/MarqueeSlider.DHBATib1.css">
-<link rel="stylesheet" href="./_astro/index.BC6Jn1v9.css"></head>
+	<link rel="stylesheet" href="./_astro/index.B5dGh8Zj.css">
+<link rel="stylesheet" href="./_astro/index.BvFwAYIu.css"></head>
 	<body>
     <header class="header">
   <section class="container header__container">
@@ -18,7 +18,7 @@
     </div>
     <div class="header__side">
       <nav class="header__nav">
-        <a class="header__link" href="./">О нас</a><a class="header__link" href="./">Услуги</a><a class="header__link" href="./">Примеры работ</a>
+        <a class="header__link" href="#about">О нас</a><a class="header__link" href="#services">Услуги</a><a class="header__link" href="#cases">Примеры работ</a>
         <button class="button button--small header__button">Оценить проект</button>
       </nav>
       <div class="header__contacts">
@@ -35,16 +35,12 @@
   
 </section>
 </header>
-
-
-
-<script type="module">const e=document.querySelector(".header__hamburger"),o=document.querySelector(".header__side"),t=document.body,d=()=>{const c=o.classList.toggle("open");e.classList.toggle("open"),t.style.overflow=c?"hidden":""};e.addEventListener("click",d);const s=window.matchMedia("(min-width: 960px)"),n=()=>{s.matches&&(o.classList.remove("open"),e.classList.remove("open"),t.style.overflow="")};s.addEventListener("change",n);n();</script>
     <main class="main">
       
   <section class="container container--gap">
   
   <div class="top-banner">
-    <div class="top-banner__head">
+    <div data-aos="fade-up" class="top-banner__head">
       <div class="top-banner__title">
         Т-студия
       </div>
@@ -54,7 +50,7 @@
       </div>
     </div>
 
-    <div class="top-banner__footer">
+    <div data-aos="fade-up" class="top-banner__footer">
       <div class="top-banner__item">
         <div class="top-banner__item-head">
           <span class="top-banner__item-title">10+</span>
@@ -78,7 +74,7 @@
       <div class="top-banner__item">
         <div class="top-banner__item-head">
           <span class="top-banner__item-title">95%</span>
-          <p>клиентов<span>остаются с нами</span></p>
+          <p>клиентов&nbsp;<span>остаются с нами</span></p>
         </div>
         <div class="top-banner__item-footer">
           <button class="button button--large button--ghost top-banner__button">Оценить проект
@@ -187,23 +183,19 @@
     </div>
   </div>
 </section>
-
-
-
-<script type="module" src="./_astro/MarqueeSlider.astro_astro_type_script_index_0_lang.CMpPYSF3.js"></script>
-  <section class="container container--gap">
+  <section class="container container--gap" id="about">
   
   <div class="quote">
-    <h2 class="title title--gradient title--arrow title--arrow-left">Мы не просто кодим — мы решаем задачи бизнеса</h2>
-    <p class="quote__subtext">Автоматизируем процессы, улучшаем цифровые продукты, помогаем компаниям расти за счет IT-решений. Разрабатываем программное обеспечение, которое упрощает работу, снижает затраты и увеличивает прибыль.</p>
+    <h2 data-aos="fade-up" data-aos-delay="200" class="title title--gradient title--arrow title--arrow-left">Мы не просто кодим — мы решаем задачи бизнеса</h2>
+    <p class="quote__subtext" data-aos="fade-up" data-aos-delay="300">Автоматизируем процессы, улучшаем цифровые продукты, помогаем компаниям расти за счет IT-решений. Разрабатываем программное обеспечение, которое упрощает работу, снижает затраты и увеличивает прибыль.</p>
   </div>
 
 </section>
-  <section class="container container--gap">
+  <section class="container container--gap" id="services">
   
   <div class="services">
     <div class="services__column services__column--sticky">
-      <div class="services__sticky">
+      <div data-aos="fade-up" class="services__sticky">
         <h2 class="title title--arrow-left">Услуги</h2>
         <p class="services__description">Анализируем, проектируем, внедряем и поддерживаем.
           <a href="#">Делаем так, чтобы IT работало на вас, а не наоборот.</a>
@@ -213,7 +205,7 @@
     </div>
 
     <div class="services__column services__column--slider">
-      <div class="service-card">
+      <div class="service-card" data-aos="fade-up">
   <div class="service-card__icon">
     
 <img src="./_astro/service-icon-1.BiB_gG8s_1IECU3.svg" alt="Разработка ПО под ключ" width="49" height="48" loading="lazy" decoding="async">
@@ -227,7 +219,7 @@
     </div>
   </div>
 </div>
-      <div class="service-card">
+      <div class="service-card" data-aos="fade-up" data-aos-delay="100">
   <div class="service-card__icon">
     
 <img src="./_astro/service-icon-1.BiB_gG8s_1IECU3.svg" alt="Разработка ПО под ключ" width="49" height="48" loading="lazy" decoding="async">
@@ -241,7 +233,7 @@
     </div>
   </div>
 </div>
-      <div class="service-card">
+      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
   <div class="service-card__icon">
     
 <img src="./_astro/service-icon-1.BiB_gG8s_1IECU3.svg" alt="Разработка ПО под ключ" width="49" height="48" loading="lazy" decoding="async">
@@ -255,7 +247,7 @@
     </div>
   </div>
 </div>
-      <div class="service-card">
+      <div class="service-card" data-aos="fade-up" data-aos-delay="300">
   <div class="service-card__icon">
     
 <img src="./_astro/service-icon-1.BiB_gG8s_1IECU3.svg" alt="Разработка ПО под ключ" width="49" height="48" loading="lazy" decoding="async">
@@ -269,7 +261,7 @@
     </div>
   </div>
 </div>
-      <div class="service-card">
+      <div class="service-card" data-aos="fade-up" data-aos-delay="400">
   <div class="service-card__icon">
     
 <img src="./_astro/service-icon-1.BiB_gG8s_1IECU3.svg" alt="Разработка ПО под ключ" width="49" height="48" loading="lazy" decoding="async">
@@ -288,11 +280,7 @@
   </div>
 
 </section>
-
-
-
-<script type="module" src="./_astro/Services.astro_astro_type_script_index_0_lang.D94tqyDY.js"></script>
-  <section class="container">
+  <section class="container" data-aos="fade-up">
   
   <div class="skills">
     <h2 class="title title--lightblue title--block title--arrow title--arrow-left">Какие технологии используем</h2>
@@ -362,18 +350,169 @@
   </div>
 
 </section>
-
-
-
-<script type="module">document.addEventListener("DOMContentLoaded",()=>{const t=document.querySelectorAll(".skills__tabs-tab"),s=document.querySelector(".skills__tabs-contents");t.forEach((e,c)=>{e.addEventListener("click",()=>{t.forEach(a=>a.classList.remove("active")),e.classList.add("active"),s.style.transform=`translateX(calc(-100% * ${c}))`})}),t.length>0&&t[0].classList.add("active")});</script>
+  <section class="container container--gap" id="cases" data-aos="fade-up">
   
+  <div class="cases">
+    <div class="cases__header">
+      <h2 class="title title--arrow-left">Наши кейсы</h2>
+      <button class="button button--small cases__header-button">Оценить проект</button>
+
+      <div class="cases__navigation">
+        <div class="cases__arrow cases__arrow--prev"></div>
+        <div class="cases__arrow cases__arrow--next"></div>
+      </div>
+    </div>
+
+    <div class="cases__body">
+      <div class="cases__swiper swiper">
+        <div class="cases__wrapper swiper-wrapper">
+          <div class="cases__slide swiper-slide">
+                <div class="cases__item">
+                  <div class="cases__logo">
+                    
+<img src="./_astro/alfa_logo.RIGtDSQS_1oKRKN.svg" alt="Logo" width="288" height="37" loading="lazy" decoding="async">
+                  </div>
+                  <div class="cases__text">
+                    Разработка и интеграция сервисов для инвестиций
+                  </div>
+                  <div class="cases__additional">
+                    <button class="cases__button">
+                      Подробнее
+                    </button>
+                    <div class="cases__description">
+                      <p>Разработка и интеграция сервисов для инвестиций</p>
+                      <ul>
+                        <li>Разработали систему авторизации и формы подачи заявок на размещение инвестиций с использованием React. </li>
+                        <li>Реализовали интеграцию с Госуслугами для удобства пользователей. Провели полный цикл проектирования и разработки </li>
+                      </ul>
+                    </div>
+                  </div>
+                  </div>
+              </div><div class="cases__slide swiper-slide">
+                <div class="cases__item">
+                  <div class="cases__logo">
+                    
+<img src="./_astro/gas_logo.DfOS5xfL_1JW1po.svg" alt="Logo" width="268" height="63" loading="lazy" decoding="async">
+                  </div>
+                  <div class="cases__text">
+                    Мобильное приложение и сайт-презентация
+                  </div>
+                  <div class="cases__additional">
+                    <button class="cases__button">
+                      Подробнее
+                    </button>
+                    <div class="cases__description">
+                      <p>Разработка и интеграция сервисов для инвестиций</p>
+                      <ul>
+                        <li>Разработали систему авторизации и формы подачи заявок на размещение инвестиций с использованием React. </li>
+                        <li>Реализовали интеграцию с Госуслугами для удобства пользователей. Провели полный цикл проектирования и разработки </li>
+                      </ul>
+                    </div>
+                  </div>
+                  </div>
+              </div><div class="cases__slide swiper-slide">
+                <div class="cases__item">
+                  <div class="cases__logo">
+                    
+<img src="./_astro/auchan_logo.Dg5H1PZE_vBB0j.svg" alt="Logo" width="147" height="35" loading="lazy" decoding="async">
+                  </div>
+                  <div class="cases__text">
+                    Дизайн сайта
+                  </div>
+                  <div class="cases__additional">
+                    <button class="cases__button">
+                      Подробнее
+                    </button>
+                    <div class="cases__description">
+                      <p>Разработка и интеграция сервисов для инвестиций</p>
+                      <ul>
+                        <li>Разработали систему авторизации и формы подачи заявок на размещение инвестиций с использованием React. </li>
+                        <li>Реализовали интеграцию с Госуслугами для удобства пользователей. Провели полный цикл проектирования и разработки </li>
+                      </ul>
+                    </div>
+                  </div>
+                  </div>
+              </div><div class="cases__slide swiper-slide">
+                <div class="cases__item">
+                  <div class="cases__logo">
+                    
+<img src="./_astro/alfa_logo.RIGtDSQS_1oKRKN.svg" alt="Logo" width="288" height="37" loading="lazy" decoding="async">
+                  </div>
+                  <div class="cases__text">
+                    Разработка и интеграция сервисов для инвестиций
+                  </div>
+                  <div class="cases__additional">
+                    <button class="cases__button">
+                      Подробнее
+                    </button>
+                    <div class="cases__description">
+                      <p>Разработка и интеграция сервисов для инвестиций</p>
+                      <ul>
+                        <li>Разработали систему авторизации и формы подачи заявок на размещение инвестиций с использованием React. </li>
+                        <li>Реализовали интеграцию с Госуслугами для удобства пользователей. Провели полный цикл проектирования и разработки </li>
+                      </ul>
+                    </div>
+                  </div>
+                  </div>
+              </div><div class="cases__slide swiper-slide">
+                <div class="cases__item">
+                  <div class="cases__logo">
+                    
+<img src="./_astro/gas_logo.DfOS5xfL_1JW1po.svg" alt="Logo" width="268" height="63" loading="lazy" decoding="async">
+                  </div>
+                  <div class="cases__text">
+                    Мобильное приложение и сайт-презентация
+                  </div>
+                  <div class="cases__additional">
+                    <button class="cases__button">
+                      Подробнее
+                    </button>
+                    <div class="cases__description">
+                      <p>Разработка и интеграция сервисов для инвестиций</p>
+                      <ul>
+                        <li>Разработали систему авторизации и формы подачи заявок на размещение инвестиций с использованием React. </li>
+                        <li>Реализовали интеграцию с Госуслугами для удобства пользователей. Провели полный цикл проектирования и разработки </li>
+                      </ul>
+                    </div>
+                  </div>
+                  </div>
+              </div><div class="cases__slide swiper-slide">
+                <div class="cases__item">
+                  <div class="cases__logo">
+                    
+<img src="./_astro/auchan_logo.Dg5H1PZE_vBB0j.svg" alt="Logo" width="147" height="35" loading="lazy" decoding="async">
+                  </div>
+                  <div class="cases__text">
+                    Дизайн сайта
+                  </div>
+                  <div class="cases__additional">
+                    <button class="cases__button">
+                      Подробнее
+                    </button>
+                    <div class="cases__description">
+                      <p>Разработка и интеграция сервисов для инвестиций</p>
+                      <ul>
+                        <li>Разработали систему авторизации и формы подачи заявок на размещение инвестиций с использованием React. </li>
+                        <li>Реализовали интеграцию с Госуслугами для удобства пользователей. Провели полный цикл проектирования и разработки </li>
+                      </ul>
+                    </div>
+                  </div>
+                  </div>
+              </div>
+        </div>
+      </div>
+      <button class="button button--small cases__footer-button">Оценить проект</button>
+    </div>
+  </div>
+
+</section>
   <section class="container container--gap">
   
   <div class="work">
     <h2 class="title title--gradient title--arrow-left">Как мы работаем</h2>
 
     <div class="work__content">
-      <div class="work-card">
+      <div class="work-card" data-aos="fade-up">
   <div class="work-card__number">
     01
   </div>
@@ -386,7 +525,7 @@
     </div>
   </div>
 </div>
-      <div class="work-card">
+      <div class="work-card" data-aos="fade-up">
   <div class="work-card__number">
     02
   </div>
@@ -399,7 +538,7 @@
     </div>
   </div>
 </div>
-      <div class="work-card">
+      <div class="work-card" data-aos="fade-up">
   <div class="work-card__number">
     03
   </div>
@@ -412,7 +551,7 @@
     </div>
   </div>
 </div>
-      <div class="work-card">
+      <div class="work-card" data-aos="fade-up">
   <div class="work-card__number">
     04
   </div>
@@ -431,52 +570,54 @@
 </section>
   <section class="container container--gap">
   
-  <div class="form">
+  <div class="form" data-aos="fade-up">
     <div class="form__content">
       <h2 class="title title--secondary title--arrow title--arrow-right">Пообщаться с нами</h2>
       <div class="form__description">
         Оставьте заявку и мы свяжемся с вами в течении одного рабочего дня.
       </div>
     </div>
-    <form class="form__inner">
-      <label class="input">
-  <input class="input__el" placeholder="Как Вас зовут? *" type="text">
+    <div class="form__inner">
+      <form class="form__wrapper">
+        <label class="input">
+  <input class="input__el" id="name" placeholder="Как Вас зовут? *" type="text">
 </label>
-      <label class="input">
-  <input class="input__el" placeholder="Название компании *" type="text">
+        <label class="input">
+  <input class="input__el" id="company" placeholder="Название компании *" type="text">
 </label>
-      <label class="input">
-  <input class="input__el" placeholder="Должность *" type="text">
+        <label class="input">
+  <input class="input__el" id="job" placeholder="Должность *" type="text">
 </label>
-      <label class="input">
-  <input class="input__el" placeholder="Email *" type="text">
+        <label class="input">
+  <input class="input__el" id="email" placeholder="Email *" type="text">
 </label>
-      <label class="input">
-  <input class="input__el" placeholder="Номер телефона *" type="text">
+        <label class="input">
+  <input class="input__el" id="phone" placeholder="Номер телефона *" type="phone">
 </label>
-      <label class="input">
-  <input class="input__el" placeholder="Опишите кратко вашу задачу *" type="text">
+        <label class="input">
+  <input class="input__el" id="description" placeholder="Опишите кратко вашу задачу *" type="text">
 </label>
 
-      <label class="checkbox">
-  <input class="checkbox__el" type="checkbox">
+        <label class="checkbox">
+  <input class="checkbox__el" id="policy" type="checkbox" required>
   <span class="checkbox__input"></span>
   <span class="checkbox__text">
     
-        Я даю согласие на обработку персональных данных и согласен с <a href="#">условиями пользовательского соглашения и политики обработки персональных данных.</a>
-      
+          Я даю согласие на обработку персональных данных и согласен с <a href="#">условиями пользовательского соглашения и политики обработки персональных данных.</a>
+        
   </span>
 </label>
 
-      <button class="button button--small">Отправить</button>
-    </form>
+        <button type="submit" class="button button--small">Отправить</button>
+      </form>
+      <div class="form__thx">
+        <h3 class="title title--gradient title--arrow-left">Спасибо!</h3>
+        <p>Ваша заявка отправлена</p>
+      </div>
+    </div>
   </div>
 
 </section>
-
-
-
-
   <section class="container">
   
   <footer class="footer">
@@ -550,3 +691,5 @@
 
     </main>
 	</body></html>
+
+<script type="module" src="./_astro/index.astro_astro_type_script_index_0_lang.DgQS5mK_.js"></script>
