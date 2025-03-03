@@ -4,8 +4,6 @@ import path, { dirname } from 'path';
 
 import relativeLinks from 'astro-relative-links';
 
-import vue from '@astrojs/vue';
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -17,7 +15,7 @@ export default defineConfig({
   assetsPrefix: 'https://cdn.example.com',
   compressHTML: false,
   build: {
-    inlineStylesheets: `never`,
+    serverEntry: 'main.mjs'
   },
   vite: {
     resolve: {
@@ -37,5 +35,5 @@ export default defineConfig({
     }
   },
 
-  integrations: [relativeLinks(), vue()]
+  integrations: [relativeLinks()]
 });

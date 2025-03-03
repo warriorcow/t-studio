@@ -4,15 +4,15 @@ import Header from "../components/Header.astro";
 const menu_list = [
   {
     text: 'О нас',
-    href: '/',
+    href: '#about',
   },
   {
     text: 'Услуги',
-    href: '/',
+    href: '#services',
   },
   {
     text: 'Примеры работ',
-    href: '/',
+    href: '#cases',
   }
 ]
 ---
@@ -34,6 +34,14 @@ const menu_list = [
 </html>
 
 <style is:global lang="scss">
+  :target {
+    scroll-margin-top: $header_height;
+
+    @include media(md) {
+      scroll-margin-top: $header_height_mobile;
+    }
+  }
+
 	html,
 	body {
 		margin: 0;
@@ -42,6 +50,7 @@ const menu_list = [
     color: $primary;
     font-family: 'Unbounded', sans-serif;
     font-weight: 400;
+    scroll-behavior: smooth;
 	}
 
   * {
@@ -80,9 +89,22 @@ const menu_list = [
     color: $accent;
   }
 
-  .main {
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*gap: $gap_section 0;*/
+  p {
+    margin-bottom: 10px;
+  }
+
+  ul {
+    padding-left: 20px;
+
+    li {
+      &::marker {
+        width: 10px;
+        height: 10px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
   }
 </style>

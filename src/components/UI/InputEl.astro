@@ -3,11 +3,13 @@ interface Props {
   class?: string
   type: boolean
   placeholder?: string
+  required?: boolean
 }
 
 const {
   class: className,
   type,
+  required,
   ...rest
 } = Astro.props
 ---
@@ -15,6 +17,7 @@ const {
   <input
       class:list={["input__el", className]} {...rest}
       type={type}
+      required={required}
   >
 </label>
 
@@ -38,5 +41,21 @@ const {
         color: rgba(43, 43, 43, 0.5);
       }
     }
+
+    .just-validate-error-field {
+      background-color: #FFE0E0;
+      border-color: #FF4D4D;
+      color: #FF4D4D;
+    }
   }
 </style>
+
+<script>
+  import Inputmask from "inputmask";
+
+  // Используйте input[type="tel"] для телефонного поля
+  const phoneInput = document.querySelector('input[type="phone"]');
+  if (phoneInput) {
+    Inputmask({ mask: "+7 (999) 999-99-99", showMaskOnHover: false }).mask(phoneInput);
+  }
+</script>

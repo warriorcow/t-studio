@@ -11,38 +11,44 @@ import MediumArrow from '../assets/arrow-medium.svg';
 const slides = [{
   title: 'Разработка и интеграция сервисов для инвестиций',
   logo: AlfaLogo,
-  buttonText: 'Подробнее'
+  buttonText: 'Подробнее',
+  description: 'Разработка и интеграция сервисов для инвестиций'
 },{
   title: 'Мобильное приложение и сайт-презентация',
   logo: GasLogo,
-  buttonText: 'Подробнее'
+  buttonText: 'Подробнее',
+  description: 'Разработка и интеграция сервисов для инвестиций'
 },{
   title: 'Дизайн сайта',
   logo: AuchanLogo,
-  buttonText: 'Подробнее'
+  buttonText: 'Подробнее',
+  description: 'Разработка и интеграция сервисов для инвестиций'
 },{
   title: 'Разработка и интеграция сервисов для инвестиций',
   logo: AlfaLogo,
-  buttonText: 'Подробнее'
+  buttonText: 'Подробнее',
+  description: 'Разработка и интеграция сервисов для инвестиций'
 },{
   title: 'Мобильное приложение и сайт-презентация',
   logo: GasLogo,
-  buttonText: 'Подробнее'
+  buttonText: 'Подробнее',
+  description: 'Разработка и интеграция сервисов для инвестиций'
 },{
   title: 'Дизайн сайта',
   logo: AuchanLogo,
-  buttonText: 'Подробнее'
+  buttonText: 'Подробнее',
+  description: 'Разработка и интеграция сервисов для инвестиций'
 }]
 ---
 
-<Container gap>
+<Container id="cases" gap>
   <div class="cases">
     <div class="cases__header">
       <Title
           text="Наши кейсы"
           tag="h2"
       />
-      <Button text="Оценить проект" />
+      <Button class="cases__header-button" text="Оценить проект" />
 
       <div class="cases__navigation">
         <div class="cases__arrow cases__arrow--prev" />
@@ -62,14 +68,24 @@ const slides = [{
                   <div class="cases__text">
                     {slide.title}
                   </div>
-                  <button class="cases__button">
-                    {slide.buttonText}
-                  </button>
-                </div>
+                  <div class="cases__additional">
+                    <button class="cases__button">
+                      {slide.buttonText}
+                    </button>
+                    <div class="cases__description">
+                      <p>{slide.description}</p>
+                      <ul>
+                        <li>Разработали систему авторизации и формы подачи заявок на размещение инвестиций с использованием React. </li>
+                        <li>Реализовали интеграцию с Госуслугами для удобства пользователей. Провели полный цикл проектирования и разработки </li>
+                      </ul>
+                    </div>
+                  </div>
+                  </div>
               </div>
           )}
         </div>
       </div>
+      <Button class="cases__footer-button" text="Оценить проект" />
     </div>
   </div>
 </Container>
@@ -125,10 +141,29 @@ const slides = [{
       }
     }
 
-    &__wrapper {}
+    &__wrapper {
+
+    }
+
+    &__swiper {
+      @include media(sm) {
+        margin: 50px -10px;
+        padding: 0 10px;
+      }
+    }
 
     &__slide {
-      height: 100% !important;
+      transition: height 200ms ease-out;
+
+      &.active {
+        .cases__description {
+          height: auto;
+        }
+
+        .cases__button::after {
+          transform: rotate(45deg);
+        }
+      }
     }
 
     &__item {
@@ -145,6 +180,7 @@ const slides = [{
 
     &__logo {
       width: 100%;
+      min-height: 64px;
       height: 64px;
       display: flex;
       align-items: center;
@@ -180,6 +216,34 @@ const slides = [{
         mask-position: center;
         margin-left: 5px;
         background-color: #3F65FF;
+        transition: transform 100ms ease-in;
+      }
+    }
+
+    &__additional {
+      margin-top: auto;
+    }
+
+    &__description {
+      @include MontserratMedium18;
+
+      transition: height 200ms ease-out;
+      overflow: hidden;
+    }
+
+    &__header-button {
+      @include media(sm) {
+        display: none;
+      }
+    }
+
+    &__footer-button {
+      display: none;
+      margin-top: 30px;
+      width: 100%;
+
+      @include media(sm) {
+        display: block;
       }
     }
   }
@@ -192,13 +256,64 @@ const slides = [{
 
   new Swiper(".cases__swiper", {
     modules: [Navigation],
-    slidesPerView: 3,
-    spaceBetween: 24,
     loop: true,
-    autoHeight: true,
+    slidesPerView: 1,
+    spaceBetween: 24,
     navigation: {
       nextEl: '.cases__arrow--next',
       prevEl: '.cases__arrow--prev',
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 16
+      },
+      960: {
+        slidesPerView: 3,
+        spaceBetween: 24,
+      }
+    },
+    on: {
+      slideChangeTransitionStart: (swiper) => {
+        if (window.innerWidth < 640) {
+          const maxHeight = swiper.slides.reduce((max, el) => Math.max(max, el.offsetHeight - el.querySelector('.cases__description').offsetHeight), 0);
+          swiper.slides.forEach((slide, i) => {
+
+            const slideDescription = slide.querySelector('.cases__description');
+            slide.classList.remove('active');
+            slideDescription.style.height = 0 + 'px';
+            slide.style.height = maxHeight + 'px';
+          });
+        }
+      },
+      init: (swiper) => {
+        const maxHeight = swiper.slides.reduce((max, el) => Math.max(max, el.offsetHeight - el.querySelector('.cases__description').offsetHeight), 0);
+        console.log(maxHeight)
+        swiper.slides.forEach((slide, i) => {
+          slide.style.height = maxHeight + 'px';
+          slide.style.minHeight = maxHeight + 'px';
+
+          const slideAdditionalEl = slide.querySelector('.cases__additional');
+          const slideDescription = slide.querySelector('.cases__description');
+          const slideDescriptionHeight = slideDescription.offsetHeight;
+          console.log(slideDescriptionHeight)
+          slideDescription.style.height = '0px';
+
+          slide.querySelector('.cases__button').addEventListener('click', () => {
+            if (!slide.classList.contains('active')) {
+              slide.classList.add('active');
+              slideAdditionalEl.style.marginTop = window.getComputedStyle(slideAdditionalEl)['margin-top'];
+              slideDescription.style.height = slideDescriptionHeight + 35 + 'px';
+              slideDescription.style.paddingTop = '35px';
+              slide.style.height = maxHeight + slideDescriptionHeight + 35 + 'px';
+            } else {
+              slide.classList.remove('active');
+              slideDescription.style.height = 0 + 'px';
+              slide.style.height = maxHeight + 'px';
+            }
+          })
+        })
+      }
     }
   });
 </script>

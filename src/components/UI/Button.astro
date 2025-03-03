@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 
 interface Props {
+  type?: string;
   text: string
   iconRightSrc?: string
   href?: string
@@ -15,6 +16,7 @@ const {
   iconRightSrc,
   text,
   href,
+  type,
   size = 'small',
   view = 'default',
   ...rest
@@ -23,7 +25,7 @@ const {
 const Element = href ? 'a' : 'button';
 ---
 
-<Element class:list={[
+<Element type={type} class:list={[
   'button',
   size === 'small' && 'button--small',
   size === 'medium' && 'button--medium',

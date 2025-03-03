@@ -15,20 +15,26 @@ import CheckboxEl from "./UI/CheckboxEl.astro";
         Оставьте заявку и мы свяжемся с вами в течении одного рабочего дня.
       </div>
     </div>
-    <form class="form__inner">
-      <InputEl type="text" placeholder="Как Вас зовут? *" />
-      <InputEl type="text" placeholder="Название компании *" />
-      <InputEl type="text" placeholder="Должность *" />
-      <InputEl type="text" placeholder="Email *" />
-      <InputEl type="text" placeholder="Номер телефона *" />
-      <InputEl type="text" placeholder="Опишите кратко вашу задачу *" />
+    <div class="form__inner">
+      <form class="form__wrapper">
+        <InputEl id="name" type="text" placeholder="Как Вас зовут? *" />
+        <InputEl id="company" type="text" placeholder="Название компании *" />
+        <InputEl id="job" type="text" placeholder="Должность *" />
+        <InputEl id="email" type="text" placeholder="Email *" />
+        <InputEl id="phone" type="phone" placeholder="Номер телефона *" />
+        <InputEl id="description" type="text" placeholder="Опишите кратко вашу задачу *" />
 
-      <CheckboxEl>
-        Я даю согласие на обработку персональных данных и согласен с <a href="#">условиями пользовательского соглашения и политики обработки персональных данных.</a>
-      </CheckboxEl>
+        <CheckboxEl id="policy" required>
+          Я даю согласие на обработку персональных данных и согласен с <a href="#">условиями пользовательского соглашения и политики обработки персональных данных.</a>
+        </CheckboxEl>
 
-      <Button text="Отправить" />
-    </form>
+        <Button type="submit" text="Отправить" />
+      </form>
+      <div class="form__thx">
+        <Title color="gradient" tag="h3" text="Спасибо!" />
+        <p>Ваша заявка отправлена</p>
+      </div>
+    </div>
   </div>
 </Container>
 
@@ -79,7 +85,6 @@ import CheckboxEl from "./UI/CheckboxEl.astro";
 
     &__description {
       @include MontserratMedium26;
-
       margin-top: 20px;
       max-width: 395px;
 
@@ -89,9 +94,7 @@ import CheckboxEl from "./UI/CheckboxEl.astro";
     }
 
     &__inner {
-      display: flex;
-      flex-direction: column;
-      gap: 40px 0;
+      position: relative;
       padding: 50px;
       border-radius: 20px;
       background-color: $secondary;
@@ -103,9 +106,127 @@ import CheckboxEl from "./UI/CheckboxEl.astro";
         gap: 30px 0;
       }
     }
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 40px 0;
+      opacity: 1;
+      transition: opacity 300ms ease-in-out, height 300ms ease-in-out;
+
+      &.active {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    &__thx {
+      pointer-events: none;
+      transition: opacity 150ms 300ms ease-in-out;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &.active {
+        pointer-events: all;
+        opacity: 1;
+      }
+    }
+  }
+
+  .just-validate-error-label {
+    display: none;
   }
 </style>
 
 <script>
+  import JustValidate from "just-validate";
 
+  document.addEventListener('DOMContentLoaded', () => {
+
+    function showThx() {
+      formEl.classList.add('active');
+      thxEl.classList.add('active');
+      if (window.innerWidth < 640) {
+        setTimeout(() => {
+          formEl.style.height = '200px';
+          formParentEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 150);
+
+      }
+    }
+    // Инициализация валидации на форме с классом .form__wrapper
+    const validation = new JustValidate('.form__wrapper');
+    const formParentEl = document.querySelector('.form');
+    const formEl = document.querySelector('.form .form__wrapper');
+    const thxEl = document.querySelector('.form .form__thx');
+
+    formEl.style.height = formEl.offsetHeight + 'px';
+
+    // Добавление правил валидации для полей формы
+    validation
+    .addField('input#name', [
+    {
+      rule: 'required',
+      errorFieldCssClass: 'invalid'
+      }
+    ])
+    .addField('input#company', [
+    {
+      rule: 'required',
+      errorFieldCssClass: 'invalid'
+      }
+    ])
+    .addField('input#job', [
+    {
+      rule: 'required',
+      errorFieldCssClass: 'invalid'
+      }
+    ])
+    .addField('input#email', [
+    {
+      rule: 'required',
+      errorFieldCssClass: 'invalid'
+      },
+    {
+      rule: 'email',
+      errorFieldCssClass: 'invalid'
+      }
+    ])
+    .addField('input#phone', [
+    {
+      rule: 'required',
+      errorFieldCssClass: 'invalid'
+      },
+    {
+      rule: 'customRegexp',
+      value: /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/,
+      errorFieldCssClass: 'invalid'
+    }
+    ])
+    .addField('input#description', [
+    {
+      rule: 'required',
+      errorFieldCssClass: 'invalid'
+      }
+    ])
+    .addField('input#policy', [
+      {
+        rule: 'required',
+        errorFieldCssClass: 'invalid'
+      }
+    ])
+    .onSuccess((event) => {
+      showThx();
+
+      // Код отправки
+    });
+  });
 </script>

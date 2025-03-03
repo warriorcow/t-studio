@@ -1,10 +1,12 @@
 ---
 interface Props {
   class?: string
+  required?: boolean
 }
 
 const {
   class: className,
+  required,
   ...rest
 } = Astro.props
 ---
@@ -13,6 +15,7 @@ const {
   <input
       class:list={["checkbox__el", className]} {...rest}
       type="checkbox"
+      required={required}
   >
   <span class="checkbox__input" />
   <span class="checkbox__text">
@@ -52,6 +55,14 @@ const {
       height: 15px;
       border: 1px solid #232323;
       border-radius: 1px;
+    }
+
+
+    .just-validate-error-field {
+
+      & + .checkbox__input {
+        border-color: #FF4D4D;
+      }
     }
   }
 </style>
