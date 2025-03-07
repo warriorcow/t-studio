@@ -10,9 +10,31 @@ document.addEventListener('DOMContentLoaded', () => {
         formEl.style.height = '200px';
         formParentEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 150);
-
     }
   }
+
+  async function submitForm() {
+    const formData = new FormData(formEl);
+    formData.append('action', 'sendform');
+
+    try {
+      const response = await fetch('/wp-admin/admin-ajax.php', {
+        method: 'POST',
+        body: formData
+      });
+
+      if (!response.ok) {
+        throw new Error(`Ошибка HTTP: ${response.status}`);
+      }
+
+      showThx();
+      formEl.reset();
+    } catch (error) {
+      console.error('Ошибка отправки формы:', error);
+      alert('Произошла ошибка при отправке формы. Попробуйте ещё раз.');
+    }
+  }
+
   // Инициализация валидации на форме с классом .form__wrapper
   const validation = new JustValidate('.form__wrapper');
   const formParentEl = document.querySelector('.form');
@@ -74,9 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
           errorFieldCssClass: 'invalid'
         }
       ])
-      .onSuccess((event) => {
-        showThx();
-
-        // Код отправки
+      .onSuccess(async () => {
+        await submitForm();
       });
 });

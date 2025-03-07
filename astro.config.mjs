@@ -19,7 +19,17 @@ export default defineConfig({
     enabled: false
   },
   build: {
-    inlineStylesheets: `never`,
+    inlineStylesheets: 'never',
+    rollupOptions: {
+      output: {
+        // Убираем хеши из имен файлов чанков
+        chunkFileNames: 'assets/[name].js', // Изменяем шаблон на без хеша
+        // Убираем хеши из имен ассетов
+        assetFileNames: 'assets/[name][extname]', // Убираем хеши из ассетов
+        // Убираем хеши из итоговых js файлов
+        entryFileNames: 'assets/[name].js' // Для начальных точек входа
+      }
+    }
   },
   vite: {
     server: {

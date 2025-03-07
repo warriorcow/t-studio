@@ -23,21 +23,6 @@ const slides = [{
   logo: AuchanLogo,
   buttonText: 'Подробнее',
   description: 'Разработка и интеграция сервисов для инвестиций'
-},{
-  title: 'Разработка и интеграция сервисов для инвестиций',
-  logo: AlfaLogo,
-  buttonText: 'Подробнее',
-  description: 'Разработка и интеграция сервисов для инвестиций'
-},{
-  title: 'Мобильное приложение и сайт-презентация',
-  logo: GasLogo,
-  buttonText: 'Подробнее',
-  description: 'Разработка и интеграция сервисов для инвестиций'
-},{
-  title: 'Дизайн сайта',
-  logo: AuchanLogo,
-  buttonText: 'Подробнее',
-  description: 'Разработка и интеграция сервисов для инвестиций'
 }]
 ---
 
@@ -105,6 +90,10 @@ const slides = [{
 
     &__body {
       margin-top: 50px;
+
+      @include media(sm) {
+        margin-top: 30px;
+      }
     }
 
     &__navigation {
@@ -121,6 +110,10 @@ const slides = [{
       border-radius: 100%;
       background: #3F65FF;
       cursor: pointer;
+
+      &.swiper-button-lock {
+        display: none;
+      }
 
       &--prev {
         &::after {
@@ -141,13 +134,9 @@ const slides = [{
       }
     }
 
-    &__wrapper {
-
-    }
-
     &__swiper {
       @include media(sm) {
-        margin: 50px -10px;
+        margin: 0 -10px;
         padding: 0 10px;
       }
     }
@@ -176,6 +165,10 @@ const slides = [{
       background: #FFFFFF;
       border: 1px solid #000000;
       border-radius: 20px;
+
+      @include media(sm) {
+        padding: 20px 22px;
+      }
     }
 
     &__logo {

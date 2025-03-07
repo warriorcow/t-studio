@@ -17,12 +17,12 @@ import CheckboxEl from "./UI/CheckboxEl.astro";
     </div>
     <div class="form__inner">
       <form class="form__wrapper">
-        <InputEl id="name" type="text" placeholder="Как Вас зовут? *" />
-        <InputEl id="company" type="text" placeholder="Название компании *" />
-        <InputEl id="job" type="text" placeholder="Должность *" />
-        <InputEl id="email" type="text" placeholder="Email *" />
-        <InputEl id="phone" type="phone" placeholder="Номер телефона *" />
-        <InputEl id="description" type="text" placeholder="Опишите кратко вашу задачу *" />
+        <InputEl id="name" name="name" type="text" placeholder="Как Вас зовут? *" />
+        <InputEl id="company" name="company" type="text" placeholder="Название компании *" />
+        <InputEl id="job" name="job" type="text" placeholder="Должность *" />
+        <InputEl id="email" name="email" type="text" placeholder="Email *" />
+        <InputEl id="phone" name="phone" type="phone" placeholder="Номер телефона *" />
+        <InputEl id="description" name="description" type="text" placeholder="Опишите кратко вашу задачу *" />
 
         <CheckboxEl id="policy" required>
           Я даю согласие на обработку персональных данных и согласен с <a href="#">условиями пользовательского соглашения</a> и <a href="#">политики обработки персональных данных.</a>
