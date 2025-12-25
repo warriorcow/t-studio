@@ -5,9 +5,10 @@ interface Props {
   icon: string
   title: string
   text: string
+  price: string
 }
 
-const { icon, title, text, ...rest } = Astro.props;
+const { icon, title, text, price, ...rest } = Astro.props;
 ---
 
 <div class="service-card" {...rest}>
@@ -20,6 +21,9 @@ const { icon, title, text, ...rest } = Astro.props;
     </div>
     <div class="service-card__text">
       {text}
+    </div>
+    <div class="service-card__price">
+        от {price} ₽
     </div>
   </div>
 </div>
@@ -75,6 +79,18 @@ const { icon, title, text, ...rest } = Astro.props;
 
       @include media(md) {
         @include MontserratMedium13;
+
+        margin-top: 20px;
+      }
+    }
+
+    &__price {
+      @include MontserratMedium26;
+
+      margin-top: 9px;
+
+      @include media(md) {
+        @include MontserratMedium18;
 
         margin-top: 20px;
       }
